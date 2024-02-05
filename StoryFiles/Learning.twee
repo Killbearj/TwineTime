@@ -19,10 +19,10 @@ Learning
 
 
 
-:: "'Fuck off'" {"position":"1000,775","size":"100,100"}
+:: 'Fuck off' {"position":"1000,775","size":"100,100"}
 What? Why? I have a whole riddle planned!
-[["'I'm sorry for being a spoiled baby, let's get back to your wonderful riddle.'"->Riddle]]
-[["because the creature said 'Hello there' exactly like you. You need a better monster."->No_Riddle]]
+[["'I'm sorry for being a spoiled baby, let's get back to your wonderful riddle.'"->Riddle][$obedience_2 = false]]
+[["Because the creature said 'Hello there' exactly like you. You need a better monster."->No_Riddle]]
 
 
 :: Continue {"position":"1025,650","size":"100,100"}
@@ -40,14 +40,14 @@ You hear a voice calling out to you, its words seem to come from every direction
 <<linkappend "'Who's there?'">>
 @@.rumble;A nightmare, if you cannot solve my riddle...@@
 [["'What's the riddle?'"->Riddle]]
-<<timed 2s>> [["'Fuck off'"]] <</timed>> 
+<<timed 2s>> [['Fuck off']] <</timed>> 
 <</linkappend>>
 <</linkreplace>>
 
 
 
 
-:: Continue to leave like a petulant brat. {"position":"1175,675","size":"100,100"}
+:: Continue to leave like a petulant brat. {"position":"1125,800","size":"100,100"}
 @@.vbold;Fine@@. You thought the alley was dangerous?
 
 You turn around, scared of walking through the alleyway. In fact, you're so scared that you pee a little bit and start crying because you're such a baby. And then, while you're crying, a loud @@.bolditalics;THWOOP@@ fills the air. You blink, and your eyes open to reveal a @@.italics;master assassin ninja vampire...@@ 
@@ -65,7 +65,7 @@ Or, sure, I guess you could fight the master assassin ninja vampire and [[die]].
 
 
 
-:: Embrace your child {"position":"1225,1125","size":"100,100"}
+:: Embrace your child {"position":"1550,825","size":"100,100"}
 "Mother," the master ninja assassin vampire says between sobs. He reaches out for you.
 "Figurative son," you reply, holding him close.
 <img  id="Vampire-Love" src="https://raw.githubusercontent.com/Killbearj/TwineTime/main/Images/Vampire.png" width="512" height="512" />
@@ -77,28 +77,30 @@ After you spend an hour discussing your shared love of the night, he walks you h
 Pathetic. You could have just searched online for the answer if you were that desperate.
 
 
-:: No Return {"position":"1175,875","size":"100,100"}
+:: No Return {"position":"1125,1100","size":"100,100"}
 <<goto "fight1">>
 
 
 :: No_Riddle {"position":"1000,925","size":"100,100"}
 @@.vbold;Fine@@. You want a real monster?
-
-You turn around, scared of walking through the alleyway and facing the riddle. In fact, you're so scared that you pee a little bit and start crying because you're such a baby. And then, while you're crying, a loud @@.bolditalics;THWOOP@@ fills the air. You blink, and your eyes open to reveal a @@.italics;master assassin ninja vampire...@@ 
+<<if $obedience is false>>\
+That's right. They're back, and so are you.
+  <</if>>\
+You turn around, scared of walking through the alleyway and facing the riddle. In fact, you're so scared that you pee a little bit and start crying because you're such a baby. And then, while you're crying, a loud @@.bolditalics;THWOOP@@ fills the air. You blink, and your eyes open to reveal a @@.italics;master assassin ninja vampire...@@
 
 <<timed 7s>> @@.red;Red, flowing cape.@@ <</timed>>
 <<timed 8s>> @@.smear; Ninja stars in hand.@@ <</timed>>
 <<timed 9s>> @@.emboss; A black belt. @@ <</timed>>
 <<timed 10s>>@@.rumble;Fangs.@@<</timed>>
 <<timed 12s>>
-You're screwed now. Come on $name, this is your last chance to [[try and solve the riddle->Riddle]].
+You're screwed now. Come on $name, this is your last chance to [[try and solve the riddle->Riddle][$obedience_2 = false]].
 <</timed>>
 <<timed 15s>>
 Or, sure, I guess you could fight the master assassin ninja vampire and [[die]].
 <</timed>>
 
 
-:: Now he gets to strike you {"position":"1450,950","size":"100,100"}
+:: Now he gets to strike you {"position":"1350,1025","size":"100,100"}
 <<if $name is "Katniss">> The master blah blah vampire attacks! He bites into your neck and... wait. 
 You're @@.bold; Katniss The Eternal Queen of the Night@@. 
 He is <<linkreplace "your nemesis?">> your child.
@@ -119,13 +121,16 @@ Well done! You didn't search online for the answer though, did you?
 
 
 :: Riddle {"position":"800,775","size":"100,100"}
+<<if $obedience_2 is false>>\
+I'm glad you came to your senses. Now, the riddle:
+<</if>>\
 ''What disappears as soon as you say its name?''
     
 <<textbox "_input" "" autofocus>><<button "Submit Answer">>
 	<<if ["silence", "quiet", "quietness"].includes(_input.toLowerCase())>>
 		<<goto "Passed">>
 	<<else>>
-		<<replace "#output">><<= either(["Nope.", "Have another try", "Wrong."])>><</replace>>
+		<<replace "#output">><<= either(["Incorrect. Close your eyes and think.", "Have another try, I've got all day", "Wrong. Perhaps you are distracted by all the noise?"])>><</replace>>
 	<</if>>
 <</button>>
 <span id="output"></span>
@@ -152,6 +157,7 @@ __What is your name, friend?__
 /* Variables /*
 $name
 $obedience
+$obedience_2
 $weapon
 $health
 $bosshealth
@@ -161,7 +167,7 @@ $bosshealth
 
 
 
-:: Turn around? [red] {"position":"1125,550","size":"100,100"}
+:: Turn around and leave. {"position":"1150,625","size":"100,100"}
 <div class="bad">You should not be here. It is not safe for you, $name. I advise that you [[leave immediately and head back down the alleyway.->Continue]]</div>
 
 <span class="hides">"Stop looking. There is nothing else here"</span>
@@ -177,13 +183,15 @@ That is is stupid name, and your parents should be ashamed. In fact, it's so stu
  <<else>> $name is a lovely name. For a second I was worried you were going to choose that stupid 'Katniss The Eternal Queen of the Night' one.
   <</if>>
 ''Anyway'', enough about names. This is my story, and it's about you. You are a <<linkreplace @@.nolink;girl@@>> woman (sorry)
-<</linkreplace>> who faces a dark and dangerous alleyway, an alleyway that is unfortunately also the quickest way home. <span class="reveals">[[Turn around?]]</span>
+<</linkreplace>> who faces a dark and dangerous alleyway, an alleyway that is unfortunately also the quickest way home. 
 
 Spooky! I know, but fear not, //Narrator// is with you. 
 [[Let us together head into the darkness->Continue][$obedience = true]]
 
+<span class="reveals">[[Turn around and leave.]]</span>
 
-:: die {"position":"1175,775","size":"100,100"}
+
+:: die {"position":"1125,925","size":"100,100"}
 Okay, then you die.
 
 What? You expected a big battle? A valliant effort to defeat the master of evil and darkness?
@@ -200,7 +208,7 @@ A... I don't know... [[a piece of paper->No Return][$weapon = "paper"]]
 <</timed>> 
 
 
-:: fight1 {"position":"1175,975","size":"100,100"}
+:: fight1 {"position":"1125,1200","size":"100,100"}
 <<nobr>>
 <<if $weapon is "rock"; >>
 	<<set $bosshealth to $bosshealth - 3>>
