@@ -19,10 +19,20 @@ Learning
 
 
 
-:: 'Fuck off' {"position":"1000,775","size":"100,100"}
+:: 'Fuck off' {"position":"800,625","size":"100,100"}
 What? Why? I have a whole riddle planned!
 [["'I'm sorry for being a spoiled baby, let's get back to your wonderful riddle.'"->Riddle][$obedience_2 = false]]
-[["Because the creature said 'Hello there' exactly like you. You need a better monster."->No_Riddle]]
+[["Because the creature said 'Hello there' exactly like you. You need to learn how to write characters who aren't just different versions of yourself.."->No_Riddle]]
+
+
+:: (Turn around and leave.) {"position":"1200,625","size":"100,100"}
+<div class="bad">You should not be here. It is not safe for you, $name. I advise that you [[leave immediately and head back down the alleyway.->Continue]]</div>
+
+<span class="hides">"Stop looking. There is nothing else here"</span>
+
+<span class="hides">"Don't be a fool. Trust me and leave. Please."</span>
+
+<span class="hides">[[Continue to leave like a petulant brat.][$obedience = false]]</span>
 
 
 :: Continue {"position":"1025,650","size":"100,100"}
@@ -47,7 +57,7 @@ You hear a voice calling out to you, its words seem to come from every direction
 
 
 
-:: Continue to leave like a petulant brat. {"position":"1125,800","size":"100,100"}
+:: Continue to leave like a petulant brat. {"position":"1200,775","size":"100,100"}
 @@.vbold;Fine@@. You thought the alley was dangerous?
 
 You turn around, scared of walking through the alleyway. In fact, you're so scared that you pee a little bit and start crying because you're such a baby. And then, while you're crying, a loud @@.bolditalics;THWOOP@@ fills the air. You blink, and your eyes open to reveal a @@.italics;master assassin ninja vampire...@@ 
@@ -74,14 +84,16 @@ After you spend an hour discussing your shared love of the night, he walks you h
 
 
 :: Fail {"position":"800,900","size":"100,100"}
-Pathetic. You could have just searched online for the answer if you were that desperate.
+Really? You could have just searched online for the answer if you were that desperate.
+
+No, this isn't right. Why don't you [[try again->Riddle]] and pretend I didn't suggest that.
 
 
-:: No Return {"position":"1125,1100","size":"100,100"}
+:: No Return {"position":"1200,1050","size":"100,100"}
 <<goto "fight1">>
 
 
-:: No_Riddle {"position":"1000,925","size":"100,100"}
+:: No_Riddle {"position":"800,775","size":"100,100"}
 @@.vbold;Fine@@. You want a real monster?
 <<if $obedience is false>>\
 That's right. They're back, and so are you.
@@ -116,11 +128,13 @@ You are the one who created this being. And you see a recognition flicker in his
   
 
 
-:: Passed {"position":"675,900","size":"100,100"}
-Well done! You didn't search online for the answer though, did you?
+:: Passed {"position":"1025,900","size":"100,100"}
+The voice doesn't respond, but you notice that the streetlight is no longer flickering, and the ominous alleyway seems a lot safer. 
 
 
-:: Riddle {"position":"800,775","size":"100,100"}
+
+
+:: Riddle {"position":"1025,775","size":"100,100"}
 <<if $obedience_2 is false>>\
 I'm glad you came to your senses. Now, the riddle:
 <</if>>\
@@ -167,16 +181,6 @@ $bosshealth
 
 
 
-:: Turn around and leave. {"position":"1150,625","size":"100,100"}
-<div class="bad">You should not be here. It is not safe for you, $name. I advise that you [[leave immediately and head back down the alleyway.->Continue]]</div>
-
-<span class="hides">"Stop looking. There is nothing else here"</span>
-
-<span class="hides">"Don't be a fool. Trust me and leave. Please."</span>
-
-<span class="hides">[[Continue to leave like a petulant brat.][$obedience = false]]</span>
-
-
 :: Welcome {"position":"1025,550","size":"100,100"}
 \<<if $name is "Katniss">> 
 That is is stupid name, and your parents should be ashamed. In fact, it's so stupid that I am not saying it. I am calling you Katniss. If you have a problem with that, close this tab. @@.nervous;But please don't.@@
@@ -188,18 +192,16 @@ That is is stupid name, and your parents should be ashamed. In fact, it's so stu
 Spooky! I know, but fear not, //Narrator// is with you. 
 [[Let us together head into the darkness->Continue][$obedience = true]]
 
-<span class="reveals">[[Turn around and leave.]]</span>
+<span class="reveals">[[(Turn around and leave.)]]</span>
 
 
-:: die {"position":"1125,925","size":"100,100"}
+:: die {"position":"1200,900","size":"100,100"}
 Okay, then you die.
 
 What? You expected a big battle? A valliant effort to defeat the master of evil and darkness?
 
 No. You die.
-
-<<timed 7s>> 
-Actually, this ending feels a bit too easy. You've ruined my story, and you shouldn't get to just walk away easy. So you're not dead... yet. You see three objects within arm's reach, and you have time to grab one of them. 
+<<timed 4s>>  Actually, this ending feels a bit too easy. You've ruined my story, and you shouldn't get to just walk away easy. So you're not dead... yet. You see three objects within arm's reach, and you have time to grab one of them. 
 
 Do you arm yourself with::
 The [[rusted scissors->No Return][$weapon = "scissors"]]
@@ -208,7 +210,7 @@ A... I don't know... [[a piece of paper->No Return][$weapon = "paper"]]
 <</timed>> 
 
 
-:: fight1 {"position":"1125,1200","size":"100,100"}
+:: fight1 {"position":"1200,1175","size":"100,100"}
 <<nobr>>
 <<if $weapon is "rock"; >>
 	<<set $bosshealth to $bosshealth - 3>>
