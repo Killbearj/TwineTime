@@ -19,7 +19,7 @@ Learning
 
 
 
-:: 'Fuck off' {"position":"800,625","size":"100,100"}
+:: 'Fuck off' {"position":"850,625","size":"100,100"}
 What? Why? I have a whole riddle planned!
 [["'I'm sorry for being a spoiled baby, let's get back to your wonderful riddle.'"->Riddle][$obedience_2 = false]]
 [["Because the creature said 'Hello there' exactly like you. You need to learn how to write characters who aren't just different versions of yourself.."->No_Riddle]]
@@ -75,15 +75,14 @@ Or, sure, I guess you could fight the master assassin ninja vampire and [[die]].
 
 
 
-:: Embrace your child {"position":"1550,825","size":"100,100"}
+:: Embrace your child {"position":"1500,1175","size":"100,100"}
 "Mother," the master ninja assassin vampire says between sobs. He reaches out for you.
 "Figurative son," you reply, holding him close.
 <img  id="Vampire-Love" src="https://raw.githubusercontent.com/Killbearj/TwineTime/main/Images/Vampire.png" width="512" height="512" />
 After you spend an hour discussing your shared love of the night, he walks you home safely. The end.
- [[Restart?|Start][state.restart()]]
 
 
-:: Fail {"position":"800,900","size":"100,100"}
+:: Fail {"position":"850,900","size":"100,100"}
 Really? You could have just searched online for the answer if you were that desperate.
 
 No, this isn't right. Why don't you [[try again->Riddle]] and pretend I didn't suggest that.
@@ -93,7 +92,7 @@ No, this isn't right. Why don't you [[try again->Riddle]] and pretend I didn't s
 <<goto "fight1">>
 
 
-:: No_Riddle {"position":"800,775","size":"100,100"}
+:: No_Riddle {"position":"850,775","size":"100,100"}
 @@.vbold;Fine@@. You want a real monster?
 <<if $obedience is false>>\
 That's right. They're back, and so are you.
@@ -112,7 +111,7 @@ Or, sure, I guess you could fight the master assassin ninja vampire and [[die]].
 <</timed>>
 
 
-:: Now he gets to strike you {"position":"1350,1025","size":"100,100"}
+:: Now he gets to strike you {"position":"1350,1175","size":"100,100"}
 <<if $name is "Katniss">> The master blah blah vampire attacks! He bites into your neck and... wait. 
 You're @@.bold; Katniss The Eternal Queen of the Night@@. 
 He is <<linkreplace "your nemesis?">> your child.
@@ -130,7 +129,10 @@ You are the one who created this being. And you see a recognition flicker in his
 
 :: Passed {"position":"1025,900","size":"100,100"}
 The voice doesn't respond, but you notice that the streetlight is no longer flickering, and the ominous alleyway seems a lot safer. 
+<<linkreplace "(continue forward)">>
+You take a step forward, and stumble as the ground begins to @@.rumble;quake.@@. Cobblestones split asunder as the ground and buildings tear in two. Exposed pipes hang above the chasm, and you see a few fractured wall sections that you might be able to climb across. @@.fade-in-out;Alarms blare@@ across the city, but all you can think about is getting home.
 
+As you try to plan a route to the other side, [[you think about your skills.->Skillselect]]<</linkreplace>>
 
 
 
@@ -152,15 +154,46 @@ I'm glad you came to your senses. Now, the riddle:
 
 
 
+:: Skillselect {"position":"1025,1025","size":"100,100"}
+All your life has been leading up to this moment, $name. Choose wisely.
+Remaining points: $skillpoints
+
+Invest in <<link "Rock Climbing" "Skillselect">>/
+<<if $skillpoints gt 0>>/
+	<<set $rock_climbing to $rock_climbing +1>>/
+    <<set $skillpoints to $skillpoints -1>>/
+    <</if>>/
+<</link>> Current: $rock_climbing
+Invest in <<link "Poetry" "Skillselect">>/
+<<if $skillpoints gt 0>>/
+    <<set $poetry to $poetry +1>>/
+    <<set $skillpoints to $skillpoints -1>>/
+    <</if>>/
+<</link>> Current: $poetry
+Invest in <<link "Narrative Design" "Skillselect">>/
+<<if $skillpoints gt 0>>/
+	<<set $narrative_design to $narrative_design +1>>/
+    <<set $skillpoints to $skillpoints -1>>/
+    <</if>>/
+<</link>> Current: $narrative_design
+<<if $skillpoints is 0>>
+All set! Now you can <<link "rethink those," "Skillselect">> 
+  <<set $rock_climbing to 0>>/
+  <<set $poetry to 0>>/
+  <<set $narrative_design to 0>>/
+  <<set $skillpoints to 5>>/
+  <</link>> or [[approach the chasm]].
+   <</if>>
+
+
 :: Start {"position":"1025,450","size":"100,100"}
 ''Hello there.''
-
 My name is //Narrator//, and I'm thrilled that you've decided to join me on this journey. I have only one more box to fill in before we can begin. So tell me:
 __What is your name, friend?__
 
 [[Bethany|Welcome][$name to 'Bethany']]
-[[Penelope|Welcome][$name = 'Penelope']]
-[[Amanda|Welcome][$name = 'Amanda']]
+[[Kate|Welcome][$name = 'Kate']]
+<<link "Paige" "Welcome">> <<set $name = 'Paige'>><</link>>
 <<linkappend "Katniss The Eternal Queen of the Night">>    ...Really? That's your actual name? [[Yes!| Welcome][$name = "Katniss"]] <</linkappend>>
 <<linkreplace "None of those!">> Incorrect. Try again. <</linkreplace>>
 
@@ -175,9 +208,17 @@ $obedience_2
 $weapon
 $health
 $bosshealth
+$rock_climbing
+$poetry
+$narrative_design
+$skillpoints
 
 <<set $health to 5>>
 <<set $bosshealth to 10000>>
+<<set $rock_climbing to 0>>
+<<set $poetry to 0>>
+<<set $narrative_design to 0>>
+<<set $skillpoints to 5>>
 
 
 
@@ -193,6 +234,11 @@ Spooky! I know, but fear not, //Narrator// is with you.
 [[Let us together head into the darkness->Continue][$obedience = true]]
 
 <span class="reveals">[[(Turn around and leave.)]]</span>
+
+
+:: approach the chasm {"position":"1025,1150","size":"100,100"}
+Ideas are swirling around in your brain, but what approach is best?
+
 
 
 :: die {"position":"1200,900","size":"100,100"}
