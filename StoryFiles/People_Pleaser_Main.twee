@@ -7,14 +7,240 @@ People_Pleaser_Main
   "ifid": "8601271B-F18D-4972-BE5B-A38B74839210",
   "format": "SugarCube",
   "format-version": "2.36.1",
-  "start": "Untitled Passage",
+  "start": "Choose Path",
   "zoom": 1
 }
 
 
-:: StoryInit {"position":"825,350","size":"100,100"}
-
-
-
-:: Untitled Passage {"position":"700,350","size":"100,100"}
+:: Choose Path {"position":"700,350","size":"100,100"}
+PH branching
 Start of divergence - player choosing where to go
+
+[[Choose Fred|Fred][$first_branch_choice = 'fred']]
+[[Choose Judy|Judy][$first_branch_choice = 'judy']]
+[[Choose Gareth|Gareth][$first_branch_choice = 'gareth']]
+
+
+
+:: Fred {"position":"525,500","size":"100,100"}
+TEXT THAT WILL BE SEEN REGARDLESS
+\<<if $first_branch_choice is 'fred'>> 
+FRED FIRST TEXT HERE
+\<<else>> 
+FRED SECOND OR THIRD TEXT HERE 
+<</if>> 
+TEXT THAT WILL BE SEEN REGARDLESS
+
+
+:: Gareth {"position":"875,500","size":"100,100"}
+TEXT THAT WILL BE SEEN REGARDLESS
+\<<if $first_branch_choice is 'gareth'>> 
+GARETH FIRST TEXT HERE
+ \<<else>> 
+ GARETH SECOND OR THIRD TEXT HERE 
+ <</if>>
+TEXT THAT WILL BE SEEN REGARDLESS
+
+
+:: Judy {"position":"700,500","size":"100,100"}
+TEXT THAT WILL BE SEEN REGARDLESS
+\<<if $first_branch_choice is 'judy'>> 
+JUDY FIRST TEXT HERE
+\<<else>> 
+JUDY SECOND OR THIRD TEXT HERE 
+<</if>>
+ TEXT THAT WILL BE SEEN REGARDLESS
+
+
+:: StoryInit {"position":"825,350","size":"100,100"}
+/* Player Variables */
+$pnoun /* The player's pronoun choice */
+
+/* Character Variables */
+$j_mood /* Judy's Mood */
+$h_mood /* Harry's Mood */
+$g_mood /* Gareth's Mood */
+$f_mood /* Fred's Mood */
+$s_mood /* Spare Mood */
+$ss_mood /* Spare Mood */
+
+/* Setting Starting Character Mood Variables */
+<<set $j_mood  to 0>>
+<<set $h_mood  to 0>>
+<<set $g_mood  to 0>>
+<<set $f_mood  to 0>>
+<<set $s_mood  to 0>>
+<<set $ss_mood  to 0>>
+
+/* Narrative Variables */
+$first_branch_choice 
+/* Who you go to speak to first at the party. Options are 'fred', 'judy' or 'gareth' */
+$fred_branch /* Checks to see if Fred's branch has already been done */
+$judy_branch  /* Checks to see if Judy's branch has already been done */
+$gareth_branch  /* Checks to see if Gareth's branch has already been done */
+
+
+
+:: StoryStylesheet [stylesheet]
+/* Cheat Sheet
+'' at the start and end = bold
+// at the start and end = italics
+__ at the start and end = underline
+
+*/
+
+/* Colour tags
+*/
+
+.white{color: white;}
+.cyan{color: cyan;}
+.red{color: red;}
+.hidden a {color: transparent;}
+.hidden {color: transparent;}
+.nolink {color: white;}
+.nolink a {color: white;}
+.bold {font-weight: bold;}
+.vbold {font-weight: 800;}
+.italics {font-style: italic;}
+.bolditalics {font-style: italic; font-weight: 800;}
+.nervous {font-style: italic; font-size: 14px;}
+
+
+/* Colour spans 
+*/
+span.speaker1 {
+color: green;
+}
+span.speaker2 {
+color: LightSkyBlue;
+}
+span.speaker3 {
+color: #21f838
+}
+}
+span.speaker4 {
+font-style: italic;
+font-size: 14px;
+}
+
+/* Big text changes 
+*/
+div.bad {
+color: red;
+background-color: LightGoldenRodYellow;
+box-shadow: 5px 5px 3px #888888;
+padding: 8px 8px 8px 8px;
+font-weight: bold;
+}
+
+div.belt {
+color: black;
+background-color: white;
+}
+
+
+\:: Start
+A hidden link that's always hidden: <span class="hidden">[[A hidden link]]</span>
+
+A hidden link that hides unless you're hovering over it: <span class="hides">[[A hidden link]]</span>
+
+A hidden link that reveals itself when you hover over it: <span class="reveals">[[A hidden link]]</span>
+
+\:: A hidden link
+You found it!
+
+
+/* Text Effects
+*/
+.shadow {
+	text-shadow: 0.08em 0.08em 0.08em #FFF;
+}
+.emboss {
+	text-shadow: 0.08em 0.08em 0em #FFF;
+	color: grey;
+}
+.blur {
+	color: transparent;
+	text-shadow: 0em 0em 0.08em #FFF;
+}
+.blurrier {
+	color: transparent;
+	text-shadow: 0em 0em 0.2em #FFF;
+}
+.blurrier::selection {
+	background-color: transparent;
+	color: transparent;
+}
+.blurrier::-moz-selection {
+	background-color: transparent;
+	color: transparent;
+}
+.smear {
+	color: transparent;
+	text-shadow:
+		0em    0em 0.02em rgba(255,255,255,0.75),
+		-0.2em 0em 0.5em  rgba(255,255,255,0.5),
+		0.2em  0em 0.5em  rgba(255,255,255,0.5);
+}
+.mirror {
+	display: inline-block;
+	transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+}
+.upside-down {
+	display: inline-block;
+	transform: scaleY(-1);
+	-webkit-transform: scaleY(-1);
+}
+
+@-webkit-keyframes fade-in-out {
+	0%,
+	to {opacity: 0}
+	50% {opacity: 1}
+}
+@keyframes fade-in-out {
+	0%,
+	to {opacity: 0}
+	50% {opacity: 1}
+}
+.fade-in-out {
+	text-decoration: none;
+	animation: fade-in-out 2s ease-in-out infinite alternate;
+	-webkit-animation: fade-in-out 2s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes rumble {
+	50% {
+		-webkit-transform: translateY(-.2em);
+		transform: translateY(-.2em)
+	}
+}
+@keyframes rumble {
+	50% {
+		-webkit-transform: translateY(-.2em);
+		transform: translateY(-.2em)
+	}
+}
+.rumble {
+	-webkit-animation: rumble linear 0.1s 0s infinite;
+	animation: rumble linear 0.1s 0s infinite;
+	display:inline-block;
+}
+
+@-webkit-keyframes shudder {
+	50% {
+		-webkit-transform: translateX(0.2em);
+		transform: translateX(0.2em)
+	}
+}
+@keyframes shudder {
+	50% {
+		-webkit-transform: translateX(0.2em);
+		transform: translateX(0.2em)
+	}
+}
+.shudder {
+	-webkit-animation: shudder linear 0.1s 0s infinite;
+	animation: shudder linear 0.1s 0s infinite;
+	display: inline-block;
+}
