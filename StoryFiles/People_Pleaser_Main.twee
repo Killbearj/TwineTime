@@ -1,0 +1,20 @@
+:: StoryTitle
+People_Pleaser_Main
+
+
+:: StoryData
+{
+  "ifid": "8601271B-F18D-4972-BE5B-A38B74839210",
+  "format": "SugarCube",
+  "format-version": "2.36.1",
+  "start": "Untitled Passage",
+  "zoom": 1
+}
+
+
+:: StoryInit {"position":"825,350","size":"100,100"}
+
+
+
+:: Untitled Passage {"position":"700,350","size":"100,100"}
+Start of divergence - player choosing where to go
