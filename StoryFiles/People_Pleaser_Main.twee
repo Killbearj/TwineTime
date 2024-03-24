@@ -7,13 +7,14 @@ People_Pleaser_Main
   "ifid": "8601271B-F18D-4972-BE5B-A38B74839210",
   "format": "SugarCube",
   "format-version": "2.36.1",
-  "start": "Choose Path",
+  "start": "Pronoun Test",
   "zoom": 1
 }
 
 
 :: Choose Path {"position":"700,350","size":"100,100"}
 PH branching
+$pnoun_end2
 Start of divergence - player choosing where to go
 
 [[Choose Fred|Fred][$first_branch_choice = 'fred']]
@@ -23,22 +24,29 @@ Start of divergence - player choosing where to go
 
 
 :: Fred {"position":"525,500","size":"100,100"}
-TEXT THAT WILL BE SEEN REGARDLESS
+You walk towards the ornate table. Bowls filled with various colourful snacks cover the surface.
 \<<if $first_branch_choice is 'fred'>> 
 FRED FIRST TEXT HERE
-\<<else>> 
-FRED SECOND OR THIRD TEXT HERE 
+\<<elseif $first_branch_choice is 'judy'>>  
+JUDY FIRST TEXT HERE
+\<<elseif $first_branch_choice is 'gareth'>>  
+GARETH FIRST TEXT HERE
 <</if>> 
 TEXT THAT WILL BE SEEN REGARDLESS
 
 
+'Oh, @@.italics;you.@@ What do you want?'
+
+
 :: Gareth {"position":"875,500","size":"100,100"}
 TEXT THAT WILL BE SEEN REGARDLESS
-\<<if $first_branch_choice is 'gareth'>> 
+\<<if $first_branch_choice is 'fred'>> 
+FRED FIRST TEXT HERE
+\<<elseif $first_branch_choice is 'judy'>>  
+JUDY FIRST TEXT HERE
+\<<elseif $first_branch_choice is 'gareth'>>  
 GARETH FIRST TEXT HERE
- \<<else>> 
- GARETH SECOND OR THIRD TEXT HERE 
- <</if>>
+<</if>> 
 TEXT THAT WILL BE SEEN REGARDLESS
 
 
@@ -52,17 +60,55 @@ JUDY SECOND OR THIRD TEXT HERE
  TEXT THAT WILL BE SEEN REGARDLESS
 
 
+:: Pronoun Test {"position":"700,75","size":"100,100"}
+Harry grins and gestures towards you.
+'Oh, [[he|Pronoun_Selected][$pnoun to 'he']]/[[she|Pronoun_Selected][$pnoun to 'she']]/[[they|Pronoun_Selected][$pnoun to 'they']] didn't know.'
+
+
+:: Pronoun_Selected {"position":"700,225","size":"100,100"}
+\<<if $pnoun is 'they'>>
+  \<<set $pnoun_end1 = 'are'>>
+  \<<set $pnoun_end2= 're'>>
+  \<<set $pnoun_2 = 'their'>>
+  \<<set $pnoun_cap = 'They'>>
+  \<<set $pnoun_2_cap = 'Their'>>
+\<</if>>
+\<<if $pnoun is 'he'>>
+  \<<set $pnoun_end1 = 'is'>>
+  \<<set $pnoun_end2 = 's'>>
+  \<<set $pnoun_2 = 'his'>>
+  \<<set $pnoun_cap = 'She'>>
+  \<<set $pnoun_2_cap = 'Her'>>
+\<</if>>
+\<<if $pnoun is 'she'>>
+  \<<set $pnoun_end1 = 'is'>>
+  \<<set $pnoun_end2 = 's'>>
+  \<<set $pnoun_2 = 'her'>>
+  \<<set $pnoun_cap = 'She'>>
+  \<<set $pnoun_2_cap = 'Her'>>
+\<</if>>
+Harry gestures towards you.
+'Oh, $pnoun didn't know. In fact, this is $pnoun_2 first time here. $pnoun_cap'$pnoun_end2 a newcomer.'
+
+[[Look around the room|Choose Path]]
+
+
 :: StoryInit {"position":"825,350","size":"100,100"}
-/* Player Variables */
-$pnoun /* The player's pronoun choice */
+/* Pronoun Variables */
+$pnoun 					  /* Determined he/she/they */
+$pnoun_2 				/* Determines his/her/their */
+$pnoun_end1 		 /* Determines are/is */
+$pnoun_end2 		 /* Determines re/s - use a ' beforehand */
+$pnoun_cap 			   /* Capitalised He/She/They */
+$pnoun_2_cap 		  /* Capitalised His/Her/Their */
 
 /* Character Variables */
-$j_mood /* Judy's Mood */
-$h_mood /* Harry's Mood */
-$g_mood /* Gareth's Mood */
-$f_mood /* Fred's Mood */
-$s_mood /* Spare Mood */
-$ss_mood /* Spare Mood */
+$j_mood 		/* Judy's Mood */
+$h_mood 		/* Harry's Mood */
+$g_mood 		/* Gareth's Mood */
+$f_mood 		 /* Fred's Mood */
+$s_mood 		/* Spare Mood */
+$ss_mood 		/* Spare Mood */
 
 /* Setting Starting Character Mood Variables */
 <<set $j_mood  to 0>>
@@ -73,11 +119,10 @@ $ss_mood /* Spare Mood */
 <<set $ss_mood  to 0>>
 
 /* Narrative Variables */
-$first_branch_choice 
-/* Who you go to speak to first at the party. Options are 'fred', 'judy' or 'gareth' */
-$fred_branch /* Checks to see if Fred's branch has already been done */
-$judy_branch  /* Checks to see if Judy's branch has already been done */
-$gareth_branch  /* Checks to see if Gareth's branch has already been done */
+$first_branch_choice 	/* Who you go to speak to first. Options = 'fred' 'judy' 'gareth' */
+$fred_branch 				/* Checks to see if Fred's branch has already been done */
+$judy_branch 			   /* Checks to see if Judy's branch has already been done */
+$gareth_branch 			 /* Checks to see if Gareth's branch has already been done */
 
 
 
