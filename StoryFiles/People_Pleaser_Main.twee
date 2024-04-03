@@ -8,18 +8,22 @@ People_Pleaser_Main
   "format": "SugarCube",
   "format-version": "2.36.1",
   "start": "Pronoun Test",
+  "tag-colors": {
+    "Main": "yellow"
+  },
   "zoom": 1
 }
 
 
 :: Choose Path {"position":"700,350","size":"100,100"}
 PH branching
-$pnoun_end2
+
 Start of divergence - player choosing where to go
 
 [[Choose Fred|Fred][$first_branch_choice = 'fred']]
 [[Choose Judy|Judy][$first_branch_choice = 'judy']]
 [[Choose Gareth|Gareth][$first_branch_choice = 'gareth']]
+
 
 
 
@@ -39,15 +43,16 @@ TEXT THAT WILL BE SEEN REGARDLESS
 
 
 :: Gareth {"position":"875,500","size":"100,100"}
-TEXT THAT WILL BE SEEN REGARDLESS
-\<<if $first_branch_choice is 'fred'>> 
-FRED FIRST TEXT HERE
-\<<elseif $first_branch_choice is 'judy'>>  
-JUDY FIRST TEXT HERE
-\<<elseif $first_branch_choice is 'gareth'>>  
-GARETH FIRST TEXT HERE
-<</if>> 
-TEXT THAT WILL BE SEEN REGARDLESS
+There is a man on a worn and lumpy sofa who is reading a book. You can’t catch the name on the cover, but the paperback is bent back on itself in the man’s hands. It’s clearly been read multiple times.
+
+[[•	Sit on the sofa as far away as possible?]]
+[[•	Sit at a companionable distance?]]
+[[•	Sit a on the armchair across from him?]]
+
+
+
+:: Gareth_2 {"position":"1125,400","size":"100,100"}
+
 
 
 :: Judy {"position":"700,500","size":"100,100"}
@@ -77,8 +82,8 @@ Harry grins and gestures towards you.
   \<<set $pnoun_end1 = 'is'>>
   \<<set $pnoun_end2 = 's'>>
   \<<set $pnoun_2 = 'his'>>
-  \<<set $pnoun_cap = 'She'>>
-  \<<set $pnoun_2_cap = 'Her'>>
+  \<<set $pnoun_cap = 'He'>>
+  \<<set $pnoun_2_cap = 'His'>>
 \<</if>>
 \<<if $pnoun is 'she'>>
   \<<set $pnoun_end1 = 'is'>>
@@ -86,11 +91,19 @@ Harry grins and gestures towards you.
   \<<set $pnoun_2 = 'her'>>
   \<<set $pnoun_cap = 'She'>>
   \<<set $pnoun_2_cap = 'Her'>>
-\<</if>>
-Harry gestures towards you.
+\<</if>>Harry gestures towards you.
 'Oh, $pnoun didn't know. In fact, this is $pnoun_2 first time here. $pnoun_cap'$pnoun_end2 a newcomer.'
 
 [[Look around the room|Choose Path]]
+
+
+Full pronoun check:
+$pnoun 					  /* Determined he/she/they */
+$pnoun_2 				/* Determines his/her/their */
+$pnoun_end1 		 /* Determines are/is */
+$pnoun_end2 		 /* Determines re/s - use a ' beforehand */
+$pnoun_cap 			   /* Capitalised He/She/They */
+$pnoun_2_cap 		  /* Capitalised His/Her/Their */
 
 
 :: StoryInit {"position":"825,350","size":"100,100"}
@@ -125,6 +138,108 @@ $judy_branch 			   /* Checks to see if Judy's branch has already been done */
 $gareth_branch 			 /* Checks to see if Gareth's branch has already been done */
 
 
+:: You answer him, and ask for his. {"position":"750,1125","size":"100,100"}
+<<linkappend "'Oh, I’m Gareth,' says Gareth.">>
+He reaches over a hand to shake yours. He does so in one powerful movement, before letting it quickly go.
+<<timed 3s>>[[•	Who do you know from the party?]] <</timed>>
+<</linkappend>>
+
+
+:: You can’t tell which side he’s leaning on. {"position":"750,1375","size":"100,100"}
+Ask him about:
+[[•	Who is he closest to here?]]
+[[•	How does he know everyone?]]
+[[•	What’s he’s reading?]]
+
+
+
+:: You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book. {"position":"750,1625","size":"100,100"}
+
+
+
+:: You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you. {"position":"750,875","size":"100,100"}
+[[‘What’s your name then?’ he asks.]]
+
+
+:: ‘What’s your name then?’ he asks. {"position":"750,1000","size":"100,100"}
+[[You answer him, and ask for his.]]
+
+
+:: •	How does he know everyone? {"position":"750,1500","size":"100,100"}
+<<linkreplace "'University mostly. I’ve known Judy since we were kids though.'">>
+<<linkreplace "His eyes flicker to her with a kind of cool observation. You wonder why there seems to be so little affection in that gaze. ">>
+<<linkreplace "'Her Dad knew my Dad, we sort of ended up growing up together.'">>
+The look he gives you sits somewhere between curious and dismissive. 
+<<timed 2s>>[[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.]]
+<</timed>>
+\<</linkreplace>>
+\<</linkreplace>>
+\<</linkreplace>>
+
+
+:: •	Sit a on the armchair across from him? {"position":"1000,750","size":"100,100"}
+TEXT THAT WILL BE SEEN REGARDLESS
+\<<if $first_branch_choice is 'fred'>> 
+FRED FIRST TEXT HERE
+\<<elseif $first_branch_choice is 'judy'>>  
+JUDY FIRST TEXT HERE
+\<<elseif $first_branch_choice is 'gareth'>>  
+GARETH FIRST TEXT HERE
+<</if>> 
+TEXT THAT WILL BE SEEN REGARDLESS
+
+
+
+:: •	Sit at a companionable distance? {"position":"875,750","size":"100,100"}
+TEXT THAT WILL BE SEEN REGARDLESS
+\<<if $first_branch_choice is 'fred'>> 
+FRED FIRST TEXT HERE
+\<<elseif $first_branch_choice is 'judy'>>  
+JUDY FIRST TEXT HERE
+\<<elseif $first_branch_choice is 'gareth'>>  
+GARETH FIRST TEXT HERE
+<</if>> 
+TEXT THAT WILL BE SEEN REGARDLESS
+
+
+
+:: •	Sit on the sofa as far away as possible? {"position":"750,750","size":"100,100"}
+As you sit down, the sofa cushions move under your weight and the motion ripples over to the reading man. He clears his throat and shifts position, but doesn’t look at you.
+
+\<<if $first_branch_choice is 'fred'>> 
+FRED FIRST TEXT HERE
+\<<elseif $first_branch_choice is 'judy'>>  
+JUDY FIRST TEXT HERE
+\<<elseif $first_branch_choice is 'gareth'>>  
+<<timed 3s>>You look across the room to the rest of the party. There is a solemn looking man standing by the snack tables, continually glancing at Judy as if waiting for her to come over.
+Meanwhile, Judy and John are chatting in the kitchen with an easy familiarity. <</timed>>
+<</if>> 
+<<timed 6s>>It’s now that you realise just how empty the flat feels, with no personal effects, nothing that truly feels lived-in around you. <</timed>>
+
+<<timed 9s>>[[You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you.]]<</timed>>
+
+
+
+
+:: •	What’s he’s reading? {"position":"875,1500","size":"100,100"}
+
+
+
+:: •	Who do you know from the party? {"position":"750,1250","size":"100,100"}
+<<linkappend "'Everyone here.'">>
+<<linkappend "He turns to you pointedly.">>
+<<linkappend 'Except you, of course.'>>
+The look he gives you sits somewhere between curious and dismissive. 
+<<timed 3s>>[[You can’t tell which side he’s leaning on.]]
+<</timed>>
+\<</linkappend>>
+\<</linkappend>>
+\<</linkappend>>
+
+
+:: •	Who is he closest to here? {"position":"625,1500","size":"100,100"}
+
+
 
 :: StoryStylesheet [stylesheet]
 /* Cheat Sheet
@@ -133,6 +248,80 @@ $gareth_branch 			 /* Checks to see if Gareth's branch has already been done */
 __ at the start and end = underline
 
 */
+
+/* Background
+*/
+
+body {
+	background-color: black;
+}
+body.test {
+	background-image: url('media/desert.jpg');
+	background-attachment: fixed;
+}
+#story {
+	font-size: 100%;
+	margin: 10% 0 0 0;
+	/* Used to center the box */
+	text-align: down;
+}
+#passages {
+  /* Box background (white with 70% opacity) */
+	background-color: white;
+
+  /* Border */
+	border: 2px solid white;
+
+  /* Rounded corners */
+	border-radius: 1em;
+
+  /* Box width */
+  /* width: 60%; */
+
+	/* Center the box 
+	display: inline-block;
+	min-height: 40%;
+	margin:auto;
+	margin-bottom: 5%;
+  	padding: 0px;*/
+}
+.passage {
+	/*margin: 0px;*/
+	/* Inner margin within the box */
+	padding: 2em;
+
+	/* Text formatting */
+	color: black;
+	font-size: 100%;
+	text-align: justify;
+  	font-family: Monospace
+}
+/* No sidebar */
+#ui-bar {
+  display: none;
+}
+/* Links */
+a.link-internal, a.link-external {
+  color: black;
+}
+a.link-internal:hover, a.link-external:hover {
+  color: deepskyblue;
+  text-decoration: none;
+}
+
+/* Shrink the page when viewed on devices with a low screen width */
+@media screen and (max-width: 960px) {
+  .passage { font-size: 90%;}
+  #passages { width: 70%; }
+}
+@media screen and (max-width: 840px) {
+  .passage { font-size: 87.5%; }
+  #passages { width: 80%; }
+}
+@media screen and (max-width: 720px) {
+  .passage { font-size: 75%; }
+  #passages { width: 90%; }
+}
 
 /* Colour tags
 */
@@ -288,4 +477,7 @@ You found it!
 	-webkit-animation: shudder linear 0.1s 0s infinite;
 	animation: shudder linear 0.1s 0s infinite;
 	display: inline-block;
+}
+
+font-size: 14px;
 }
