@@ -69,6 +69,10 @@ JUDY SECOND OR THIRD TEXT HERE
 Harry grins and gestures towards you.
 'Oh, [[he|Pronoun_Selected][$pnoun to 'he']]/[[she|Pronoun_Selected][$pnoun to 'she']]/[[they|Pronoun_Selected][$pnoun to 'they']] didn't know.'
 
+<<type 60ms>>\
+I can also do a typewriter style
+\<</type>>
+
 
 :: Pronoun_Selected {"position":"700,225","size":"100,100"}
 \<<if $pnoun is 'they'>>
