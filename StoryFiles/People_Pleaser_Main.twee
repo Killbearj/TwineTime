@@ -7,15 +7,16 @@ People_Pleaser_Main
   "ifid": "8601271B-F18D-4972-BE5B-A38B74839210",
   "format": "SugarCube",
   "format-version": "2.36.1",
-  "start": "Pronoun Test",
+  "start": "Choose Path",
   "tag-colors": {
-    "Main": "yellow"
+    "Main": "yellow",
+    "First-Draft": "orange"
   },
   "zoom": 1
 }
 
 
-:: Choose Path {"position":"700,350","size":"100,100"}
+:: Choose Path [First-Draft] {"position":"700,350","size":"100,100"}
 PH branching
 
 Start of divergence - player choosing where to go
@@ -23,8 +24,6 @@ Start of divergence - player choosing where to go
 [[Choose Fred|Fred][$first_branch_choice = 'fred']]
 [[Choose Judy|Judy][$first_branch_choice = 'judy']]
 [[Choose Gareth|Gareth][$first_branch_choice = 'gareth']]
-
-
 
 
 :: Fred {"position":"525,500","size":"100,100"}
@@ -39,20 +38,17 @@ GARETH FIRST TEXT HERE
 TEXT THAT WILL BE SEEN REGARDLESS
 
 
-'Oh, @@.italics;you.@@ What do you want?'
+@@.FRED;'Oh, //you//. What do you want?'@@
 
 
-:: Gareth {"position":"875,500","size":"100,100"}
-There is a man on a worn and lumpy sofa who is reading a book. You can’t catch the name on the cover, but the paperback is bent back on itself in the man’s hands. It’s clearly been read multiple times.
+:: Gareth [First-Draft] {"position":"875,500","size":"100,100"}
+There is a man on a worn and lumpy sofa who is reading a book. You can’t catch the name on the cover, but the paperback is bent back on itself in the man’s hands. It has clearly been read multiple times.  
+
+You approach with some trepidation, choosing how best to take up a place beside him. He sits at the far lefthand side of the sofa, one leg crossed ontop of the other. 
 
 [[•	Sit on the sofa as far away as possible?]]
 [[•	Sit at a companionable distance?]]
 [[•	Sit a on the armchair across from him?]]
-
-
-
-:: Gareth_2 {"position":"1125,400","size":"100,100"}
-
 
 
 :: Judy {"position":"700,500","size":"100,100"}
@@ -65,13 +61,25 @@ JUDY SECOND OR THIRD TEXT HERE
  TEXT THAT WILL BE SEEN REGARDLESS
 
 
+:: Listened to Gareth [First-Draft] {"position":"750,1475","size":"100,100"}
+<<if $gar_conversation is 'book'>>
+[[•	Who is he closest to here?][$gar_conversation = 'done']]
+[[•	How does he know everyone?][$gar_conversation = 'done']]
+<</if>>
+<<if $gar_conversation is 'people'>>
+[[•	What’s he’s reading?][$gar_conversation = 'done']]
+[[•	Move the conversation on]]
+<</if>>
+<<if $gar_conversation is 'done'>>
+[[•	Move the conversation on]]
+<</if>>
+
+
+
+
 :: Pronoun Test {"position":"700,75","size":"100,100"}
 Harry grins and gestures towards you.
 'Oh, [[he|Pronoun_Selected][$pnoun to 'he']]/[[she|Pronoun_Selected][$pnoun to 'she']]/[[they|Pronoun_Selected][$pnoun to 'they']] didn't know.'
-
-<<type 60ms>>\
-I can also do a typewriter style
-\<</type>>
 
 
 :: Pronoun_Selected {"position":"700,225","size":"100,100"}
@@ -112,12 +120,7 @@ $pnoun_2_cap 		  /* Capitalised His/Her/Their */
 
 :: StoryInit {"position":"825,350","size":"100,100"}
 /* Pronoun Variables */
-$pnoun 					  /* Determined he/she/they */
-$pnoun_2 				/* Determines his/her/their */
-$pnoun_end1 		 /* Determines are/is */
-$pnoun_end2 		 /* Determines re/s - use a ' beforehand */
-$pnoun_cap 			   /* Capitalised He/She/They */
-$pnoun_2_cap 		  /* Capitalised His/Her/Their */
+$name
 
 /* Character Variables */
 $j_mood 		/* Judy's Mood */
@@ -140,76 +143,80 @@ $first_branch_choice 	/* Who you go to speak to first. Options = 'fred' 'judy' '
 $fred_branch 				/* Checks to see if Fred's branch has already been done */
 $judy_branch 			   /* Checks to see if Judy's branch has already been done */
 $gareth_branch 			 /* Checks to see if Gareth's branch has already been done */
+$gar_conversation /* Gareth's Conversation*/
 
 
-:: You answer him, and ask for his. {"position":"750,1125","size":"100,100"}
-<<linkappend "'Oh, I’m Gareth,' says Gareth.">>
-He reaches over a hand to shake yours. He does so in one powerful movement, before letting it quickly go.
-<<timed 3s>>[[•	Who do you know from the party?]] <</timed>>
-<</linkappend>>
-
-
-:: You can’t tell which side he’s leaning on. {"position":"750,1375","size":"100,100"}
-Ask him about:
-[[•	Who is he closest to here?]]
-[[•	How does he know everyone?]]
-[[•	What’s he’s reading?]]
-
-
-
-:: You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book. {"position":"750,1625","size":"100,100"}
-
-
-
-:: You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you. {"position":"750,875","size":"100,100"}
+:: You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you. [First-Draft] {"position":"700,875","size":"100,100"}
 [[‘What’s your name then?’ he asks.]]
 
 
-:: ‘What’s your name then?’ he asks. {"position":"750,1000","size":"100,100"}
-[[You answer him, and ask for his.]]
+:: ‘What’s your name then?’ he asks. [First-Draft] {"position":"750,1000","size":"100,100"}
+I'm <<textbox "$name" "">>
+
+You look at him expectantly. 
+@@.GAR; I’m Gareth.@@
+He reaches over a hand to shake yours. 
+[[•	Shake his hand]]
 
 
-:: •	How does he know everyone? {"position":"750,1500","size":"100,100"}
+:: •	How does he know everyone? [First-Draft] {"position":"750,1250","size":"100,100"}
 <<linkreplace "'University mostly. I’ve known Judy since we were kids though.'">>
 <<linkreplace "His eyes flicker to her with a kind of cool observation. You wonder why there seems to be so little affection in that gaze. ">>
 <<linkreplace "'Her Dad knew my Dad, we sort of ended up growing up together.'">>
 The look he gives you sits somewhere between curious and dismissive. 
-<<timed 2s>>[[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.]]
+<<timed 2s>>[[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 <</timed>>
 \<</linkreplace>>
 \<</linkreplace>>
 \<</linkreplace>>
 
 
-:: •	Sit a on the armchair across from him? {"position":"1000,750","size":"100,100"}
-TEXT THAT WILL BE SEEN REGARDLESS
+:: •	Move the conversation on {"position":"750,1600","size":"100,100"}
+
+
+
+:: •	Shake his hand [First-Draft] {"position":"750,1125","size":"100,100"}
+He does so in one powerful movement, before letting it quickly go.
+
+Ask him about:
+[[•	Who is he closest to here?][$gar_conversation = 'people']]
+[[•	How does he know everyone?][$gar_conversation = 'people']]
+[[•	What’s he’s reading?][$gar_conversation = 'book']]
+
+
+:: •	Sit a on the armchair across from him? [First-Draft] {"position":"1000,750","size":"100,100"}
+Beside the lumpy sofa is a broad armchair. You throw your weight into it with false confidence, and it makes a devastatingly loud fart noise as the air rushes out of the cushions beneath you. 
+You lock eyes with the man with the book, your face heating. 
 \<<if $first_branch_choice is 'fred'>> 
 FRED FIRST TEXT HERE
 \<<elseif $first_branch_choice is 'judy'>>  
 JUDY FIRST TEXT HERE
 \<<elseif $first_branch_choice is 'gareth'>>  
-GARETH FIRST TEXT HERE
+Behind you, you can hear Judy and John are chatting in the kitchen with an easy familiarity.
 <</if>> 
-TEXT THAT WILL BE SEEN REGARDLESS
+[[‘What’s your name then?’ he asks.]]
 
 
-
-:: •	Sit at a companionable distance? {"position":"875,750","size":"100,100"}
-TEXT THAT WILL BE SEEN REGARDLESS
+:: •	Sit at a companionable distance? [First-Draft] {"position":"875,750","size":"100,100"}
+You sit in the middle of the sofa, close enough that you could put a hand on his thigh if you’d wanted to. You see his eyes dart from the page to your own leg. He may be uncomfortable with your proximity. You shuffle a little further away. 
 \<<if $first_branch_choice is 'fred'>> 
 FRED FIRST TEXT HERE
 \<<elseif $first_branch_choice is 'judy'>>  
 JUDY FIRST TEXT HERE
 \<<elseif $first_branch_choice is 'gareth'>>  
-GARETH FIRST TEXT HERE
+You look across the room to the rest of the party. There is a solemn looking man standing by the snack tables, continually glancing at Judy as if waiting for her to come over.
+
+Judy and John are chatting in the kitchen with an easy familiarity.  
 <</if>> 
-TEXT THAT WILL BE SEEN REGARDLESS
+It’s now that you realise just how empty the flat feels, with no personal effects, nothing that truly feels lived-in around you. 
+
+You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you. 
+
+[[‘What’s your name then?’ he asks.]]
 
 
-
-:: •	Sit on the sofa as far away as possible? {"position":"750,750","size":"100,100"}
-As you sit down, the sofa cushions move under your weight and the motion ripples over to the reading man. He clears his throat and shifts position, but doesn’t look at you.
-
+:: •	Sit on the sofa as far away as possible? [First-Draft] {"position":"750,750","size":"100,100"}
+As you sit down, the sofa cushions move under your weight, and the motion ripples over to the reading man. He clears his throat and shifts position, but doesn’t look at you. You’re thankful you sat at the very edge of the three-person sofa.
 \<<if $first_branch_choice is 'fred'>> 
 FRED FIRST TEXT HERE
 \<<elseif $first_branch_choice is 'judy'>>  
@@ -223,26 +230,28 @@ Meanwhile, Judy and John are chatting in the kitchen with an easy familiarity. <
 <<timed 9s>>[[You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you.]]<</timed>>
 
 
+:: •	What’s he’s reading? [First-Draft] {"position":"875,1250","size":"100,100"}
+He looks at the front of the book as if seeing it for the first time. @@.GAR;‘Oh, just Freud’s Ego and the Id. I’m trying to get away from ego this month’@@
+
+‘How that going for you?’
+
+@@.GAR;‘I’m doing really well thanks.’@@
+
+You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.  
+
+It seems you have failed to keep his interest.
+
+[[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 
 
-:: •	What’s he’s reading? {"position":"875,1500","size":"100,100"}
+:: •	Who is he closest to here? [First-Draft] {"position":"625,1250","size":"100,100"}
+Gareth looks about the room with cool observation.  
 
+@@.GAR;‘I’ve known Judy since we were kids.’@@
 
+It looks like that might be the only information he will proffer, but after a another beat he says: @@.GAR;‘Fred is probably my closest friend here.’@@
 
-:: •	Who do you know from the party? {"position":"750,1250","size":"100,100"}
-<<linkappend "'Everyone here.'">>
-<<linkappend "He turns to you pointedly.">>
-<<linkappend 'Except you, of course.'>>
-The look he gives you sits somewhere between curious and dismissive. 
-<<timed 3s>>[[You can’t tell which side he’s leaning on.]]
-<</timed>>
-\<</linkappend>>
-\<</linkappend>>
-\<</linkappend>>
-
-
-:: •	Who is he closest to here? {"position":"625,1500","size":"100,100"}
-
+[[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 
 
 :: StoryStylesheet [stylesheet]
@@ -346,11 +355,11 @@ a.link-internal:hover, a.link-external:hover {
 
 /* Colour spans 
 */
-span.speaker1 {
+span.GAR {
 color: green;
 }
-span.speaker2 {
-color: LightSkyBlue;
+span.FRED {
+color: darkred;
 }
 span.speaker3 {
 color: #21f838
