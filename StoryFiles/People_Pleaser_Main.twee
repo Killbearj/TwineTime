@@ -37,7 +37,7 @@ JUDY FIRST TEXT HERE
 GARETH FIRST TEXT HERE
 <</if>>
 <<timed 3s>>
-	<<linkappend "@@.FRED;'Leave if you want. I don't care.'@@">>
+	<<linkappend "@@.F;'Leave if you want. I don't care.'@@">>
     
 [[•	Ask him if he's okay]]
 [[• Nod amiably]]
@@ -67,6 +67,11 @@ JUDY FIRST TEXT HERE
 JUDY SECOND OR THIRD TEXT HERE 
 <</if>>
  TEXT THAT WILL BE SEEN REGARDLESS
+ 
+ Notes: 
+ Judy should reference that she and Fred have had an argument just before you arrived
+ She should mention that he lets his passion get the best of him.
+ 
 
 
 :: Listened to Gareth [First-Draft] {"position":"750,1475","size":"100,100"}
@@ -125,7 +130,7 @@ $pnoun_2_cap 		  /* Capitalised His/Her/Their */
 
 
 :: StoryInit {"position":"825,350","size":"100,100"}
-/* Pronoun Variables */
+/* Name */
 $name
 
 /* Character Variables */
@@ -149,7 +154,7 @@ $first_branch_choice 	/* Who you go to speak to first. Options = 'fred' 'judy' '
 $fred_branch 				/* Checks to see if Fred's branch has already been done */
 $judy_branch 			   /* Checks to see if Judy's branch has already been done */
 $gareth_branch 			 /* Checks to see if Gareth's branch has already been done */
-$gar_conversation /* Gareth's Conversation*/
+$gar_conversation      /* Gareth's Conversation Branching*/
 
 
 :: You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you. [First-Draft] {"position":"700,875","size":"100,100"}
@@ -160,19 +165,27 @@ $gar_conversation /* Gareth's Conversation*/
 I'm <<textbox "$name" "">>
 
 You look at him expectantly. 
-@@.GAR; I’m Gareth.@@
+@@.G; I’m Gareth.@@
 He reaches over a hand to shake yours. 
 [[•	Shake his hand]]
+
+
+:: •	Admit that you have {"position":"400,625","size":"100,100"}
+
 
 
 :: •	Ask him if he's okay {"position":"525,625","size":"100,100"}
 
 
 
+:: •	Continue to walk away. {"position":"150,625","size":"100,100"}
+
+
+
 :: •	How does he know everyone? [First-Draft] {"position":"750,1250","size":"100,100"}
-<<linkreplace "'University mostly. I’ve known Judy since we were kids though.'">>
+<<linkreplace "@@.G;'University mostly. I’ve known Judy since we were kids though.'@@">>
 <<linkreplace "His eyes flicker to her with a kind of cool observation. You wonder why there seems to be so little affection in that gaze. ">>
-<<linkreplace "'Her Dad knew my Dad, we sort of ended up growing up together.'">>
+<<linkreplace "@@.G;'Her Dad knew my Dad, we sort of ended up growing up together.'@@">>
 The look he gives you sits somewhere between curious and dismissive. 
 <<timed 2s>>[[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 <</timed>>
@@ -181,7 +194,16 @@ The look he gives you sits somewhere between curious and dismissive.
 \<</linkreplace>>
 
 
-:: •	Leave {"position":"400,625","size":"100,100"}
+:: •	Leave {"position":"325,500","size":"100,100"}
+As you turn to leave, you hear an exaggerated sigh and the rustling of a crisps packet.
+@@.F;'That's what I thought. Enjoy your time as the hot new thing.'@@
+Glancing back, you see that his jaw is clenched, and his nostrils flare with each heavy breath.
+@@.F;'I'm Fred. Not that you asked. I guess you've probably heard about me already.'
+His voiced is strained, and for a passing moment, you wonder what it is that you've done to make this man so frustrated.
+[[•	Tell him you haven't.]]
+\<<if $first_branch_choice is 'judy'>> 
+[[•	Admit that you have]]<</if>>
+[[•	Continue to walk away.]]
 
 
 
@@ -244,12 +266,16 @@ Meanwhile, Judy and John are chatting in the kitchen with an easy familiarity. <
 <<timed 9s>>[[You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you.]]<</timed>>
 
 
+:: •	Tell him you haven't. {"position":"275,625","size":"100,100"}
+
+
+
 :: •	What’s he’s reading? [First-Draft] {"position":"875,1250","size":"100,100"}
-He looks at the front of the book as if seeing it for the first time. @@.GAR;‘Oh, just Freud’s Ego and the Id. I’m trying to get away from ego this month’@@
+He looks at the front of the book as if seeing it for the first time. @@.G;‘Oh, just Freud’s Ego and the Id. I’m trying to get away from ego this month’@@
 
 ‘How that going for you?’
 
-@@.GAR;‘I’m doing really well thanks.’@@
+@@.G;‘I’m doing really well thanks.’@@
 
 You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.  
 
@@ -261,9 +287,9 @@ It seems you have failed to keep his interest.
 :: •	Who is he closest to here? [First-Draft] {"position":"625,1250","size":"100,100"}
 Gareth looks about the room with cool observation.  
 
-@@.GAR;‘I’ve known Judy since we were kids.’@@
+@@.G;‘I’ve known Judy since we were kids.’@@
 
-It looks like that might be the only information he will proffer, but after a another beat he says: @@.GAR;‘Fred is probably my closest friend here.’@@
+It looks like that might be the only information he will proffer, but after a another beat he says: @@.G;‘Fred is probably my closest friend here.’@@
 
 [[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 
@@ -279,6 +305,28 @@ It looks like that might be the only information he will proffer, but after a an
 __ at the start and end = underline
 
 */
+
+/* SPEAKERS
+call them by using @@.LETTER; speech here @@
+Note to Josh, could use font-size: 14px; for something
+*/
+
+/* Player */ span.P {
+font-style: italic;
+} 
+/* Gareth */ span.G {
+color: green;
+} 
+/* Fred */ span.F {
+color: darkred;
+}
+/* Harry */ span.H {
+color: blue
+}
+/* Judy */ span.J {
+color: purple
+}
+
 
 /* Background
 */
@@ -372,22 +420,6 @@ a.link-internal:hover, a.link-external:hover {
 .nervous {font-style: italic; font-size: 14px;}
 
 
-/* Colour spans 
-*/
-span.GAR {
-color: green;
-}
-span.FRED {
-color: darkred;
-}
-span.speaker3 {
-color: #21f838
-}
-}
-span.speaker4 {
-font-style: italic;
-font-size: 14px;
-}
 
 /* Big text changes 
 */
