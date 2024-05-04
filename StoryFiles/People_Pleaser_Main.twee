@@ -27,28 +27,36 @@ Start of divergence - player choosing where to go
 
 
 :: Fred {"position":"525,500","size":"100,100"}
-You walk towards the ornate table. Bowls filled with various colourful snacks cover the surface.
-\<<if $first_branch_choice is 'fred'>> 
-FRED FIRST TEXT HERE
+<<linkappend "You walk towards the ornate table. Bowls filled with various colourful snacks cover the surface. A nervous anticipation has filled your stomach, leaving little room for food, and you spend a few moment trying to decide what you can pick at politely.">>
+<<if $first_branch_choice is 'fred'>> 
+When the stranger doesn't acknowledge your existence, you wonder if perhaps you should have chosen a friendlier figure. Your eyes dart towards the man on the sofa, he seems harmless enough. 
+As though reading your mind, the stranger huffs and turns to you.
 \<<elseif $first_branch_choice is 'judy'>>  
 JUDY FIRST TEXT HERE
 \<<elseif $first_branch_choice is 'gareth'>>  
 GARETH FIRST TEXT HERE
-<</if>> 
-TEXT THAT WILL BE SEEN REGARDLESS
-
-
-@@.FRED;'Oh, //you//. What do you want?'@@
+<</if>>
+<<timed 3s>>
+	<<linkappend "@@.FRED;'Leave if you want. I don't care.'@@">>
+    
+[[•	Ask him if he's okay]]
+[[• Nod amiably]]
+[[•	Leave]]
+    \<</linkappend>>
+\<</timed>>
+\<</linkappend>>
 
 
 :: Gareth [First-Draft] {"position":"875,500","size":"100,100"}
-There is a man on a worn and lumpy sofa who is reading a book. You can’t catch the name on the cover, but the paperback is bent back on itself in the man’s hands. It has clearly been read multiple times.  
+<<linkappend "There is a man on a worn and lumpy sofa who is reading a book. You can’t catch the name on the cover, but the paperback is bent back on itself in the man’s hands. It has clearly been read multiple times.">>
 
-You approach with some trepidation, choosing how best to take up a place beside him. He sits at the far lefthand side of the sofa, one leg crossed ontop of the other. 
+<<linkappend "You approach with some trepidation, choosing how best to take up a place beside him. He sits at the far lefthand side of the sofa, one leg crossed ontop of the other.">>
 
 [[•	Sit on the sofa as far away as possible?]]
 [[•	Sit at a companionable distance?]]
 [[•	Sit a on the armchair across from him?]]
+\<</linkappend>>
+\<</linkappend>>
 
 
 :: Judy {"position":"700,500","size":"100,100"}
@@ -73,8 +81,6 @@ JUDY SECOND OR THIRD TEXT HERE
 <<if $gar_conversation is 'done'>>
 [[•	Move the conversation on]]
 <</if>>
-
-
 
 
 :: Pronoun Test {"position":"700,75","size":"100,100"}
@@ -159,6 +165,10 @@ He reaches over a hand to shake yours.
 [[•	Shake his hand]]
 
 
+:: •	Ask him if he's okay {"position":"525,625","size":"100,100"}
+
+
+
 :: •	How does he know everyone? [First-Draft] {"position":"750,1250","size":"100,100"}
 <<linkreplace "'University mostly. I’ve known Judy since we were kids though.'">>
 <<linkreplace "His eyes flicker to her with a kind of cool observation. You wonder why there seems to be so little affection in that gaze. ">>
@@ -169,6 +179,10 @@ The look he gives you sits somewhere between curious and dismissive.
 \<</linkreplace>>
 \<</linkreplace>>
 \<</linkreplace>>
+
+
+:: •	Leave {"position":"400,625","size":"100,100"}
+
 
 
 :: •	Move the conversation on {"position":"750,1600","size":"100,100"}
@@ -254,6 +268,10 @@ It looks like that might be the only information he will proffer, but after a an
 [[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 
 
+:: • Nod amiably {"position":"650,625","size":"100,100"}
+
+
+
 :: StoryStylesheet [stylesheet]
 /* Cheat Sheet
 '' at the start and end = bold
@@ -309,6 +327,7 @@ body.test {
 	text-align: justify;
   	font-family: Monospace
 }
+
 /* No sidebar */
 #ui-bar {
   display: none;
@@ -494,3 +513,4 @@ You found it!
 
 font-size: 14px;
 }
+
