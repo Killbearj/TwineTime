@@ -39,9 +39,9 @@ GARETH FIRST TEXT HERE
 <<timed 3s>>
 	<<linkappend "@@.F;'Leave if you want. I don't care.'@@">>
     
-[[•	Ask him if he's okay]]
-[[• Nod amiably]]
-[[•	Leave]]
+[[•	Ask him if he's okay.]]
+[[• Nod amiably and hope he calms down.]]
+[[•	Leave.]]
     \<</linkappend>>
 \<</timed>>
 \<</linkappend>>
@@ -170,12 +170,19 @@ He reaches over a hand to shake yours.
 [[•	Shake his hand]]
 
 
-:: •	Admit that you have {"position":"400,625","size":"100,100"}
+:: •	Admit that you have {"position":"400,775","size":"100,100"}
 
 
 
-:: •	Ask him if he's okay {"position":"525,625","size":"100,100"}
-
+:: •	Ask him if he's okay. {"position":"400,625","size":"100,100"}
+The man lets out an exaggerated sigh, and picks from a bowl of nuts.
+@@.F;'Sure. I'll get over it. I always do.'@@
+You see that his jaw is clenched, and his nostrils flare with each heavy breath.
+@@.F;'I'm Fred. Not that you asked. I guess you've probably heard about me already.'
+His voiced is strained, and for a passing moment, you wonder what it is that you've done to make this man so frustrated.
+[[•	Tell him you haven't.]]
+\<<if $first_branch_choice is 'judy'>> 
+[[•	Admit that you have]]<</if>>
 
 
 :: •	Continue to walk away. {"position":"150,625","size":"100,100"}
@@ -194,7 +201,7 @@ The look he gives you sits somewhere between curious and dismissive.
 \<</linkreplace>>
 
 
-:: •	Leave {"position":"325,500","size":"100,100"}
+:: •	Leave. {"position":"325,500","size":"100,100"}
 As you turn to leave, you hear an exaggerated sigh and the rustling of a crisps packet.
 @@.F;'That's what I thought. Enjoy your time as the hot new thing.'@@
 Glancing back, you see that his jaw is clenched, and his nostrils flare with each heavy breath.
@@ -266,7 +273,7 @@ Meanwhile, Judy and John are chatting in the kitchen with an easy familiarity. <
 <<timed 9s>>[[You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you.]]<</timed>>
 
 
-:: •	Tell him you haven't. {"position":"275,625","size":"100,100"}
+:: •	Tell him you haven't. {"position":"275,775","size":"100,100"}
 
 
 
@@ -294,7 +301,7 @@ It looks like that might be the only information he will proffer, but after a an
 [[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 
 
-:: • Nod amiably {"position":"650,625","size":"100,100"}
+:: • Nod amiably and hope he calms down. {"position":"550,625","size":"100,100"}
 
 
 
