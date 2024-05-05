@@ -25,6 +25,32 @@ Start of divergence - player choosing where to go
 [[Choose Judy|Judy][$first_branch_choice = 'judy']]
 [[Choose Gareth|Gareth][$first_branch_choice = 'gareth']]
 
+Note:
+Harry should say something like 'say hello to everyone and then come and find me'
+
+
+:: Conversations Checkpoint {"position":"750,1650","size":"100,100"}
+You look around the room and weigh up your options.
+<<if $fred_branch is true>>
+You see Fred is still BLAHING by the snacks.<</if>>
+<<if $judy_branch is true>>
+You see Judy is still BLAHING in the kitchen.<</if>>
+<<if $gareth_branch is true>>
+You see Gareth is still BLAHING on the sofa.<</if>>
+<<if $fred_branch is false>>
+[[Approach the man by the snack table.->Fred]]<</if>>
+<<if $judy_branch is false>>
+[[Join Judy in the kitchen->Judy]]<</if>>
+<<if $gareth_branch is false>>
+[[Find a place to sit for a moment.->Gareth]]<</if>>
+<<if $fred_branch is true and $gareth_branch and $judy_branch>>
+[[Find Harry]]<</if>>
+
+
+
+:: Find Harry {"position":"750,1775","size":"100,100"}
+
+
 
 :: Fred {"position":"525,500","size":"100,100"}
 <<linkappend "You walk towards the ornate table. Bowls filled with various colourful snacks cover the surface. A nervous anticipation has filled your stomach, leaving little room for food, and you spend a few moment trying to decide what you can pick at politely.">>
@@ -74,7 +100,7 @@ JUDY SECOND OR THIRD TEXT HERE
  
 
 
-:: Listened to Gareth [First-Draft] {"position":"750,1475","size":"100,100"}
+:: Listened to Gareth [First-Draft] {"position":"1175,1300","size":"100,100"}
 <<if $gar_conversation is 'book'>>
 [[•	Who is he closest to here?][$gar_conversation = 'done']]
 [[•	How does he know everyone?][$gar_conversation = 'done']]
@@ -141,14 +167,6 @@ $f_mood 		 /* Fred's Mood */
 $s_mood 		/* Spare Mood */
 $ss_mood 		/* Spare Mood */
 
-/* Setting Starting Character Mood Variables */
-<<set $j_mood  to 0>>
-<<set $h_mood  to 0>>
-<<set $g_mood  to 0>>
-<<set $f_mood  to 0>>
-<<set $s_mood  to 0>>
-<<set $ss_mood  to 0>>
-
 /* Narrative Variables */
 $first_branch_choice 	/* Who you go to speak to first. Options = 'fred' 'judy' 'gareth' */
 $fred_branch 				/* Checks to see if Fred's branch has already been done */
@@ -156,12 +174,24 @@ $judy_branch 			   /* Checks to see if Judy's branch has already been done */
 $gareth_branch 			 /* Checks to see if Gareth's branch has already been done */
 $gar_conversation      /* Gareth's Conversation Branching*/
 
+/* Setting variables at the start */
+<<set $j_mood  to 0>>
+<<set $h_mood  to 0>>
+<<set $g_mood  to 0>>
+<<set $f_mood  to 0>>
+<<set $s_mood  to 0>>
+<<set $ss_mood  to 0>>
+<<set $fred_branch to false>>		
+<<set $judy_branch to false>>			  
+<<set $gareth_branch to false>>	 		
 
-:: You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you. [First-Draft] {"position":"700,875","size":"100,100"}
+
+
+:: You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you. [First-Draft] {"position":"1100,750","size":"100,100"}
 [[‘What’s your name then?’ he asks.]]
 
 
-:: ‘What’s your name then?’ he asks. [First-Draft] {"position":"750,1000","size":"100,100"}
+:: ‘What’s your name then?’ he asks. [First-Draft] {"position":"1150,875","size":"100,100"}
 I'm <<textbox "$name" "">>
 
 You look at him expectantly. 
@@ -170,11 +200,11 @@ He reaches over a hand to shake yours.
 [[•	Shake his hand]]
 
 
-:: •	Admit that you have {"position":"400,775","size":"100,100"}
+:: •	Admit that you have {"position":"250,700","size":"100,100"}
 
 
 
-:: •	Ask him if he's okay. {"position":"400,625","size":"100,100"}
+:: •	Ask him if he's okay. {"position":"250,550","size":"100,100"}
 The man lets out an exaggerated sigh, and picks from a bowl of nuts.
 @@.F;'Sure. I'll get over it. I always do.'@@
 You see that his jaw is clenched, and his nostrils flare with each heavy breath.
@@ -185,11 +215,13 @@ His voiced is strained, and for a passing moment, you wonder what it is that you
 [[•	Admit that you have]]<</if>>
 
 
-:: •	Continue to walk away. {"position":"150,625","size":"100,100"}
+:: •	Continue to walk away. {"position":"525,675","size":"100,100"}
+<<set $f_mood to $f_mood-1>>
+You ignore Fred's frustration. His anger is not your problem. 
+Instead, you [[look around for someone more hospitable to talk to.->Conversations Checkpoint][$fred_branch = true]]
 
 
-
-:: •	How does he know everyone? [First-Draft] {"position":"750,1250","size":"100,100"}
+:: •	How does he know everyone? [First-Draft] {"position":"1150,1125","size":"100,100"}
 <<linkreplace "@@.G;'University mostly. I’ve known Judy since we were kids though.'@@">>
 <<linkreplace "His eyes flicker to her with a kind of cool observation. You wonder why there seems to be so little affection in that gaze. ">>
 <<linkreplace "@@.G;'Her Dad knew my Dad, we sort of ended up growing up together.'@@">>
@@ -201,7 +233,7 @@ The look he gives you sits somewhere between curious and dismissive.
 \<</linkreplace>>
 
 
-:: •	Leave. {"position":"325,500","size":"100,100"}
+:: •	Leave. {"position":"325,400","size":"100,100"}
 As you turn to leave, you hear an exaggerated sigh and the rustling of a crisps packet.
 @@.F;'That's what I thought. Enjoy your time as the hot new thing.'@@
 Glancing back, you see that his jaw is clenched, and his nostrils flare with each heavy breath.
@@ -214,11 +246,11 @@ His voiced is strained, and for a passing moment, you wonder what it is that you
 
 
 
-:: •	Move the conversation on {"position":"750,1600","size":"100,100"}
+:: •	Move the conversation on {"position":"1175,1425","size":"100,100"}
 
 
 
-:: •	Shake his hand [First-Draft] {"position":"750,1125","size":"100,100"}
+:: •	Shake his hand [First-Draft] {"position":"1150,1000","size":"100,100"}
 He does so in one powerful movement, before letting it quickly go.
 
 Ask him about:
@@ -227,7 +259,7 @@ Ask him about:
 [[•	What’s he’s reading?][$gar_conversation = 'book']]
 
 
-:: •	Sit a on the armchair across from him? [First-Draft] {"position":"1000,750","size":"100,100"}
+:: •	Sit a on the armchair across from him? [First-Draft] {"position":"1400,625","size":"100,100"}
 Beside the lumpy sofa is a broad armchair. You throw your weight into it with false confidence, and it makes a devastatingly loud fart noise as the air rushes out of the cushions beneath you. 
 You lock eyes with the man with the book, your face heating. 
 \<<if $first_branch_choice is 'fred'>> 
@@ -240,7 +272,7 @@ Behind you, you can hear Judy and John are chatting in the kitchen with an easy 
 [[‘What’s your name then?’ he asks.]]
 
 
-:: •	Sit at a companionable distance? [First-Draft] {"position":"875,750","size":"100,100"}
+:: •	Sit at a companionable distance? [First-Draft] {"position":"1275,625","size":"100,100"}
 You sit in the middle of the sofa, close enough that you could put a hand on his thigh if you’d wanted to. You see his eyes dart from the page to your own leg. He may be uncomfortable with your proximity. You shuffle a little further away. 
 \<<if $first_branch_choice is 'fred'>> 
 FRED FIRST TEXT HERE
@@ -258,7 +290,7 @@ You shift in discomfort as you realise the man has put down his book, you smile 
 [[‘What’s your name then?’ he asks.]]
 
 
-:: •	Sit on the sofa as far away as possible? [First-Draft] {"position":"750,750","size":"100,100"}
+:: •	Sit on the sofa as far away as possible? [First-Draft] {"position":"1150,625","size":"100,100"}
 As you sit down, the sofa cushions move under your weight, and the motion ripples over to the reading man. He clears his throat and shifts position, but doesn’t look at you. You’re thankful you sat at the very edge of the three-person sofa.
 \<<if $first_branch_choice is 'fred'>> 
 FRED FIRST TEXT HERE
@@ -273,11 +305,11 @@ Meanwhile, Judy and John are chatting in the kitchen with an easy familiarity. <
 <<timed 9s>>[[You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you.]]<</timed>>
 
 
-:: •	Tell him you haven't. {"position":"275,775","size":"100,100"}
+:: •	Tell him you haven't. {"position":"125,700","size":"100,100"}
 
 
 
-:: •	What’s he’s reading? [First-Draft] {"position":"875,1250","size":"100,100"}
+:: •	What’s he’s reading? [First-Draft] {"position":"1275,1125","size":"100,100"}
 He looks at the front of the book as if seeing it for the first time. @@.G;‘Oh, just Freud’s Ego and the Id. I’m trying to get away from ego this month’@@
 
 ‘How that going for you?’
@@ -291,7 +323,7 @@ It seems you have failed to keep his interest.
 [[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 
 
-:: •	Who is he closest to here? [First-Draft] {"position":"625,1250","size":"100,100"}
+:: •	Who is he closest to here? [First-Draft] {"position":"1025,1125","size":"100,100"}
 Gareth looks about the room with cool observation.  
 
 @@.G;‘I’ve known Judy since we were kids.’@@
@@ -301,7 +333,7 @@ It looks like that might be the only information he will proffer, but after a an
 [[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 
 
-:: • Nod amiably and hope he calms down. {"position":"550,625","size":"100,100"}
+:: • Nod amiably and hope he calms down. {"position":"125,475","size":"100,100"}
 
 
 
