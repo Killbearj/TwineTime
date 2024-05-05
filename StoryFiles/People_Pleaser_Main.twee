@@ -216,7 +216,7 @@ His voiced is strained, and for a passing moment, you wonder what it is that you
 
 
 :: •	Continue to walk away. {"position":"525,675","size":"100,100"}
-<<set $f_mood to $f_mood-1>>
+<<set $f_mood to $f_mood-2>>
 You ignore Fred's frustration. His anger is not your problem. 
 Instead, you [[look around for someone more hospitable to talk to.->Conversations Checkpoint][$fred_branch = true]]
 
