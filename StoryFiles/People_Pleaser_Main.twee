@@ -7,7 +7,7 @@ People_Pleaser_Main
   "ifid": "8601271B-F18D-4972-BE5B-A38B74839210",
   "format": "SugarCube",
   "format-version": "2.36.1",
-  "start": "Choose Path",
+  "start": "That bloody BMW!",
   "tag-colors": {
     "Main": "yellow",
     "First-Draft": "orange"
@@ -47,7 +47,6 @@ You see Gareth is still BLAHING on the sofa.<</if>>
 [[Find Harry]]<</if>>
 
 
-
 :: Find Harry {"position":"750,1775","size":"100,100"}
 
 
@@ -85,6 +84,19 @@ GARETH FIRST TEXT HERE
 \<</linkappend>>
 
 
+:: Harry shoots you a quick look {"position":"1625,375","size":"100,100"}
+He clears his throat. @@.H;‘So do you like PTC? You’ve been there for what, a year now?’@@
+
+‘Yeah. It’s been… 
+
+The traffic moves, and you wait for Harry to leave the junction before replying:
+
+
+[[•	Good]]
+[[•	It's a job]]
+
+
+
 :: Judy {"position":"700,500","size":"100,100"}
 TEXT THAT WILL BE SEEN REGARDLESS
 \<<if $first_branch_choice is 'judy'>> 
@@ -97,7 +109,6 @@ JUDY SECOND OR THIRD TEXT HERE
  Notes: 
  Judy should reference that she and Fred have had an argument just before you arrived
  She should mention that he lets his passion get the best of him.
- 
 
 
 :: Listened to Gareth [First-Draft] {"position":"1175,1300","size":"100,100"}
@@ -183,12 +194,48 @@ $gar_conversation      /* Gareth's Conversation Branching*/
 <<set $ss_mood  to 0>>
 <<set $fred_branch to false>>		
 <<set $judy_branch to false>>			  
-<<set $gareth_branch to false>>	 		
+<<set $gareth_branch to false>>
+
+
+:: That bloody BMW! {"position":"1562.5,875","size":"100,100"}
+@@.H;‘He’s always going on about his bloody BMW. You know what they say about BMW drivers’@@
+
+You don’t. You take the bus. You nod all the same. 
+
+[[To tell you the truth]]
+
+
+:: To tell you the truth {"position":"1562.5,1000","size":"100,100"}
+Harry takes a turn down a quiet suburban street. The houses on each side are the kinds of terraces that workers used to live in, now occupied by young and wealthy Londoners. 
+
+Harry continues with an air of conspiracy @@.H;‘I’ve been feel pretty down on PTC for a while. All those billionaire clients with their second and third homes. All that money we watch moving around. It makes me kind of sick’@@
+
+[[You're a little taken aback]]
+
+
+:: Welcome {"position":"1625,225","size":"100,100"}
+You are in Harry’s car. He’s a newly formed friend from work, and he’s driving you to a party you’re not sure you really want to go to. The car sits at a traffic light on a London street, and as he waits, Harry drums his hands against the steering wheel in a rhythmic beat.
+<<timed 5s>>
+The silence between you has stretched on a little longer than feels comfortable.
+<</timed>>
+
+[[Harry shoots you a quick look]]
 
 
 
 :: You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you. [First-Draft] {"position":"1100,750","size":"100,100"}
 [[‘What’s your name then?’ he asks.]]
+
+
+:: You're a little taken aback {"position":"1550,1125","size":"100,100"}
+You’ve never heard Harry speak like this. You’d only hung out on the gym on Thursdays. The conversation there only got about as heated as ‘how many sets do you have left?’
+
+You can feel him waiting for some kind of supporting statement from you, an indication that you’re feeling the same.
+
+[[•Agree with him vehemently]]
+[[•Give a measured reply]]
+[[•Disagree with him]]
+
 
 
 :: ‘What’s your name then?’ he asks. [First-Draft] {"position":"1150,875","size":"100,100"}
@@ -221,6 +268,13 @@ You ignore Fred's frustration. His anger is not your problem.
 Instead, you [[look around for someone more hospitable to talk to.->Conversations Checkpoint][$fred_branch = true]]
 
 
+:: •	Good {"position":"1625,500","size":"100,100"}
+@@.H;‘Come on, tell me how you really feel. Adam’s your boss right? He can be a bit…’@@
+
+[[•He's a micromanager, sure]]
+[[•of a prick?]]
+
+
 :: •	How does he know everyone? [First-Draft] {"position":"1150,1125","size":"100,100"}
 <<linkreplace "@@.G;'University mostly. I’ve known Judy since we were kids though.'@@">>
 <<linkreplace "His eyes flicker to her with a kind of cool observation. You wonder why there seems to be so little affection in that gaze. ">>
@@ -233,6 +287,13 @@ The look he gives you sits somewhere between curious and dismissive.
 \<</linkreplace>>
 
 
+:: •	It's a job {"position":"1750,500","size":"100,100"}
+@@.H;‘Come on, tell me how you really feel. Adam’s your boss right? He can be a bit…’@@
+
+[[•He's a micromanager, sure]]
+[[•of a prick?]]
+
+
 :: •	Leave. {"position":"325,400","size":"100,100"}
 As you turn to leave, you hear an exaggerated sigh and the rustling of a crisps packet.
 @@.F;'That's what I thought. Enjoy your time as the hot new thing.'@@
@@ -243,7 +304,6 @@ His voiced is strained, and for a passing moment, you wonder what it is that you
 \<<if $first_branch_choice is 'judy'>> 
 [[•	Admit that you have]]<</if>>
 [[•	Continue to walk away.]]
-
 
 
 :: •	Move the conversation on {"position":"1175,1425","size":"100,100"}
@@ -335,6 +395,47 @@ It looks like that might be the only information he will proffer, but after a an
 
 :: • Nod amiably and hope he calms down. {"position":"125,475","size":"100,100"}
 
+
+
+:: •Agree with him vehemently {"position":"1550,1250","size":"100,100"}
+‘Yeah some of our clients are real fat cats. It’s quite depressing seeing all that money flying about’
+
+@@.H;‘Yeah and knowing they’re putting it toward… nothing! Funding their wasteful lives! It’s not right.’@@
+
+
+:: •Disagree with him {"position":"1425,1250","size":"100,100"}
+‘I dunno, some of those people do good work. Like, they’re important people’
+
+@@.H;‘Didn’t take you for a tory’@@
+
+You feel the sudden desire to backpeddle, ‘Oh no, I’m not anything. Not a torie. Not anything’
+
+@@.H;‘Not having to be political is a priviledge, you know’@@
+
+The air in the car turns frosty.
+
+
+
+:: •Give a measured reply {"position":"1675,1250","size":"100,100"}
+‘Eat the rich, am I right?’
+
+@@.H;‘Yeah dude, you get it! Truly we’re living in the darkest timeline. Capitalism can stuff it’@@
+
+
+:: •He's a micromanager, sure {"position":"1562.5,750","size":"100,100"}
+Harry gives you a quirk of the eyebrow. He can tell you’re hedging but you kind of like Adam. He got you a flat white the other morning.
+
+@@.H;‘You don’t have to worry about speaking honestly with me. I’m on the second floor so I’m away from all you high flyers’@@
+
+You feel like you have to give him something, ‘He really loves his car’
+
+[[That bloody BMW!]]
+
+
+:: •of a prick? {"position":"1687.5,750","size":"100,100"}
+Harry hoots with laughter, but the moment you say it you feel a pang of guilt. Adam’s not so bad. 
+
+[[That bloody BMW!]] 
 
 
 :: StoryStylesheet [stylesheet]
@@ -584,4 +685,3 @@ You found it!
 
 font-size: 14px;
 }
-
