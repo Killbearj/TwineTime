@@ -16,6 +16,10 @@ People_Pleaser_Main
 }
 
 
+:: Ask why they've fallen out. {"position":"275,850","size":"100,100"}
+
+
+
 :: Choose Path [First-Draft] {"position":"700,350","size":"100,100"}
 PH branching
 
@@ -51,7 +55,7 @@ You see Gareth is still BLAHING on the sofa.<</if>>
 
 
 
-:: Fred {"position":"525,500","size":"100,100"}
+:: Fred {"position":"525,450","size":"100,100"}
 <<linkappend "You walk towards the ornate table. Bowls filled with various colourful snacks cover the surface. A nervous anticipation has filled your stomach, leaving little room for food, and you spend a few moment trying to decide what you can pick at politely.">>
 <<if $first_branch_choice is 'fred'>> 
 When the stranger doesn't acknowledge your existence, you wonder if perhaps you should have chosen a friendlier figure. Your eyes dart towards the man on the sofa, he seems harmless enough. 
@@ -65,7 +69,7 @@ GARETH FIRST TEXT HERE
 	<<linkappend "@@.F;'Leave if you want. I don't care.'@@">>
     
 [[•	Ask him if he's okay.]]
-[[• Nod amiably and hope he calms down.]]
+[[• Nod amiably and hope he calms down.->•	Ask him if he's okay.]]
 [[•	Leave.]]
     \<</linkappend>>
 \<</timed>>
@@ -94,7 +98,6 @@ The traffic moves, and you wait for Harry to leave the junction before replying:
 
 [[•	Good]]
 [[•	It's a job]]
-
 
 
 :: Judy {"position":"700,500","size":"100,100"}
@@ -222,7 +225,6 @@ The silence between you has stretched on a little longer than feels comfortable.
 [[Harry shoots you a quick look]]
 
 
-
 :: You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you. [First-Draft] {"position":"1100,750","size":"100,100"}
 [[‘What’s your name then?’ he asks.]]
 
@@ -237,6 +239,22 @@ You can feel him waiting for some kind of supporting statement from you, an indi
 [[•Disagree with him]]
 
 
+:: a dick? {"position":"275,725","size":"100,100"}
+Fred laughs, and the last of the creases on his foredhead vanish.
+He slaps you on the shoulder. @@.F;'Exactly.'@@
+<<timed 5s>>
+After a few seconds, he leans in and half-whispers, @@F;'Just take everything you hear from Judy with a pinch of salt, alright? Me, I'm a straight-talker. You might not like what I've got to say, but I'm being me. Judy... she's not like us.'@@
+[[Ask why they've fallen out.]]
+<<\timed>>
+
+
+
+:: so emotional? {"position":"425,725","size":"100,100"}
+Fred's scowl deepens and he glances back towards the kitchen.
+@@.F;'You sound just like her. Whatever. It's a big night, I'm allowed to have my own opinions.'@@
+[[Ask why they've fallen out.]]
+[[Leave ->•	Continue to walk away.]] 
+
 
 :: ‘What’s your name then?’ he asks. [First-Draft] {"position":"1150,875","size":"100,100"}
 I'm <<textbox "$name" "">>
@@ -247,24 +265,24 @@ He reaches over a hand to shake yours.
 [[•	Shake his hand]]
 
 
-:: •	Admit that you have {"position":"250,700","size":"100,100"}
+:: •	Admit that you have {"position":"400,250","size":"100,100"}
 
 
 
-:: •	Ask him if he's okay. {"position":"250,550","size":"100,100"}
+:: •	Ask him if he's okay. {"position":"350,425","size":"100,100"}
 The man lets out an exaggerated sigh, and picks from a bowl of nuts.
-@@.F;'Sure. I'll get over it. I always do.'@@
+@@.F;'Whatever, I'll get over it. I always do.'@@
 You see that his jaw is clenched, and his nostrils flare with each heavy breath.
 @@.F;'I'm Fred. Not that you asked. I guess you've probably heard about me already.'
-His voiced is strained, and for a passing moment, you wonder what it is that you've done to make this man so frustrated.
+His voiced is strained, and for a passing moment, you wonder what it is that you've done to make this man so angry.
 [[•	Tell him you haven't.]]
 \<<if $first_branch_choice is 'judy'>> 
 [[•	Admit that you have]]<</if>>
 
 
-:: •	Continue to walk away. {"position":"525,675","size":"100,100"}
+:: •	Continue to walk away. {"position":"575,725","size":"100,100"}
 <<set $f_mood to $f_mood-2>>
-You ignore Fred's frustration. His anger is not your problem. 
+You ignore Fred's frustration. His anger isn't your problem. 
 Instead, you [[look around for someone more hospitable to talk to.->Conversations Checkpoint][$fred_branch = true]]
 
 
@@ -294,7 +312,7 @@ The look he gives you sits somewhere between curious and dismissive.
 [[•of a prick?]]
 
 
-:: •	Leave. {"position":"325,400","size":"100,100"}
+:: •	Leave. {"position":"525,575","size":"100,100"}
 As you turn to leave, you hear an exaggerated sigh and the rustling of a crisps packet.
 @@.F;'That's what I thought. Enjoy your time as the hot new thing.'@@
 Glancing back, you see that his jaw is clenched, and his nostrils flare with each heavy breath.
@@ -365,8 +383,13 @@ Meanwhile, Judy and John are chatting in the kitchen with an easy familiarity. <
 <<timed 9s>>[[You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you.]]<</timed>>
 
 
-:: •	Tell him you haven't. {"position":"125,700","size":"100,100"}
-
+:: •	Tell him you haven't. {"position":"350,575","size":"100,100"}
+Fred gives you a flustered look before fixing his eyes back on the snacks. 
+@@.F;'Oh, only a matter of time then, I guess.'@@
+A second sigh, this time it sounds more genuine, and you see his tense shoulders deflate as he slowly exhales.
+@@.F;'We got off on a bad foot. I'm not usually...'@@ He pauses, trying to find the right word.
+[[so emotional?]]
+[[a dick?]]
 
 
 :: •	What’s he’s reading? [First-Draft] {"position":"1275,1125","size":"100,100"}
@@ -393,10 +416,6 @@ It looks like that might be the only information he will proffer, but after a an
 [[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 
 
-:: • Nod amiably and hope he calms down. {"position":"125,475","size":"100,100"}
-
-
-
 :: •Agree with him vehemently {"position":"1550,1250","size":"100,100"}
 ‘Yeah some of our clients are real fat cats. It’s quite depressing seeing all that money flying about’
 
@@ -413,7 +432,6 @@ You feel the sudden desire to backpeddle, ‘Oh no, I’m not anything. Not a to
 @@.H;‘Not having to be political is a priviledge, you know’@@
 
 The air in the car turns frosty.
-
 
 
 :: •Give a measured reply {"position":"1675,1250","size":"100,100"}
@@ -435,7 +453,7 @@ You feel like you have to give him something, ‘He really loves his car’
 :: •of a prick? {"position":"1687.5,750","size":"100,100"}
 Harry hoots with laughter, but the moment you say it you feel a pang of guilt. Adam’s not so bad. 
 
-[[That bloody BMW!]] 
+[[That bloody BMW!]]
 
 
 :: StoryStylesheet [stylesheet]
