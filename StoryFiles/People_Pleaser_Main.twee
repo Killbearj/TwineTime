@@ -16,11 +16,24 @@ People_Pleaser_Main
 }
 
 
-:: Ask why they've fallen out. {"position":"275,850","size":"100,100"}
+:: 'People change. You can't fight the system forever.' {"position":"675,1000","size":"100,100"}
+Fred scoffs. 
+@@.F;'You have no idea
+[[•	Make a polite excuse to leave.]]
+<<if $fred_conversation is 'Judy'>>
+[[Ask why they're fallen out. ->•	Ask why they've fallen out.]]
+<</if>>
 
 
+:: 'That's a shame, I hate it when people turn back on their values. {"position":"525,1000","size":"100,100"}
+Fred nods in agreement. 
+[[•	Make a polite excuse to leave.]]
+<<if $fred_conversation is 'Judy'>>
+[[Ask why they're fallen out. ->•	Ask why they've fallen out.]]
+<</if>>
 
-:: Choose Path [First-Draft] {"position":"700,350","size":"100,100"}
+
+:: Choose Path [First-Draft] {"position":"975,350","size":"100,100"}
 PH branching
 
 Start of divergence - player choosing where to go
@@ -33,7 +46,7 @@ Note:
 Harry should say something like 'say hello to everyone and then come and find me'
 
 
-:: Conversations Checkpoint {"position":"750,1650","size":"100,100"}
+:: Conversations Checkpoint {"position":"1050,1350","size":"100,100"}
 You look around the room and weigh up your options.
 <<if $fred_branch is true>>
 You see Fred is still BLAHING by the snacks.<</if>>
@@ -51,11 +64,11 @@ You see Gareth is still BLAHING on the sofa.<</if>>
 [[Find Harry]]<</if>>
 
 
-:: Find Harry {"position":"750,1775","size":"100,100"}
+:: Find Harry {"position":"1050,1475","size":"100,100"}
 
 
 
-:: Fred {"position":"525,450","size":"100,100"}
+:: Fred {"position":"800,450","size":"100,100"}
 <<linkappend "You walk towards the ornate table. Bowls filled with various colourful snacks cover the surface. A nervous anticipation has filled your stomach, leaving little room for food, and you spend a few moment trying to decide what you can pick at politely.">>
 <<if $first_branch_choice is 'fred'>> 
 When the stranger doesn't acknowledge your existence, you wonder if perhaps you should have chosen a friendlier figure. Your eyes dart towards the man on the sofa, he seems harmless enough. 
@@ -76,7 +89,7 @@ GARETH FIRST TEXT HERE
 \<</linkappend>>
 
 
-:: Gareth [First-Draft] {"position":"875,500","size":"100,100"}
+:: Gareth [First-Draft] {"position":"1150,500","size":"100,100"}
 <<linkappend "There is a man on a worn and lumpy sofa who is reading a book. You can’t catch the name on the cover, but the paperback is bent back on itself in the man’s hands. It has clearly been read multiple times.">>
 
 <<linkappend "You approach with some trepidation, choosing how best to take up a place beside him. He sits at the far lefthand side of the sofa, one leg crossed ontop of the other.">>
@@ -88,7 +101,7 @@ GARETH FIRST TEXT HERE
 \<</linkappend>>
 
 
-:: Harry shoots you a quick look {"position":"1625,375","size":"100,100"}
+:: Harry shoots you a quick look {"position":"1900,375","size":"100,100"}
 He clears his throat. @@.H;‘So do you like PTC? You’ve been there for what, a year now?’@@
 
 ‘Yeah. It’s been… 
@@ -100,7 +113,7 @@ The traffic moves, and you wait for Harry to leave the junction before replying:
 [[•	It's a job]]
 
 
-:: Judy {"position":"700,500","size":"100,100"}
+:: Judy {"position":"975,500","size":"100,100"}
 TEXT THAT WILL BE SEEN REGARDLESS
 \<<if $first_branch_choice is 'judy'>> 
 JUDY FIRST TEXT HERE
@@ -114,7 +127,7 @@ JUDY SECOND OR THIRD TEXT HERE
  She should mention that he lets his passion get the best of him.
 
 
-:: Listened to Gareth [First-Draft] {"position":"1175,1300","size":"100,100"}
+:: Listened to Gareth [First-Draft] {"position":"1450,1300","size":"100,100"}
 <<if $gar_conversation is 'book'>>
 [[•	Who is he closest to here?][$gar_conversation = 'done']]
 [[•	How does he know everyone?][$gar_conversation = 'done']]
@@ -128,12 +141,12 @@ JUDY SECOND OR THIRD TEXT HERE
 <</if>>
 
 
-:: Pronoun Test {"position":"700,75","size":"100,100"}
+:: Pronoun Test {"position":"975,75","size":"100,100"}
 Harry grins and gestures towards you.
 'Oh, [[he|Pronoun_Selected][$pnoun to 'he']]/[[she|Pronoun_Selected][$pnoun to 'she']]/[[they|Pronoun_Selected][$pnoun to 'they']] didn't know.'
 
 
-:: Pronoun_Selected {"position":"700,225","size":"100,100"}
+:: Pronoun_Selected {"position":"975,225","size":"100,100"}
 \<<if $pnoun is 'they'>>
   \<<set $pnoun_end1 = 'are'>>
   \<<set $pnoun_end2= 're'>>
@@ -169,7 +182,7 @@ $pnoun_cap 			   /* Capitalised He/She/They */
 $pnoun_2_cap 		  /* Capitalised His/Her/Their */
 
 
-:: StoryInit {"position":"825,350","size":"100,100"}
+:: StoryInit {"position":"1100,350","size":"100,100"}
 /* Name */
 $name
 
@@ -187,6 +200,7 @@ $fred_branch 				/* Checks to see if Fred's branch has already been done */
 $judy_branch 			   /* Checks to see if Judy's branch has already been done */
 $gareth_branch 			 /* Checks to see if Gareth's branch has already been done */
 $gar_conversation      /* Gareth's Conversation Branching*/
+$fred_conversation     /* Fred's Conversation Branching*/
 
 /* Setting variables at the start */
 <<set $j_mood  to 0>>
@@ -200,7 +214,7 @@ $gar_conversation      /* Gareth's Conversation Branching*/
 <<set $gareth_branch to false>>
 
 
-:: That bloody BMW! {"position":"1562.5,875","size":"100,100"}
+:: That bloody BMW! {"position":"1850,875","size":"100,100"}
 @@.H;‘He’s always going on about his bloody BMW. You know what they say about BMW drivers’@@
 
 You don’t. You take the bus. You nod all the same. 
@@ -208,7 +222,7 @@ You don’t. You take the bus. You nod all the same.
 [[To tell you the truth]]
 
 
-:: To tell you the truth {"position":"1562.5,1000","size":"100,100"}
+:: To tell you the truth {"position":"1850,1000","size":"100,100"}
 Harry takes a turn down a quiet suburban street. The houses on each side are the kinds of terraces that workers used to live in, now occupied by young and wealthy Londoners. 
 
 Harry continues with an air of conspiracy @@.H;‘I’ve been feel pretty down on PTC for a while. All those billionaire clients with their second and third homes. All that money we watch moving around. It makes me kind of sick’@@
@@ -216,7 +230,7 @@ Harry continues with an air of conspiracy @@.H;‘I’ve been feel pretty down o
 [[You're a little taken aback]]
 
 
-:: Welcome {"position":"1625,225","size":"100,100"}
+:: Welcome {"position":"1900,225","size":"100,100"}
 You are in Harry’s car. He’s a newly formed friend from work, and he’s driving you to a party you’re not sure you really want to go to. The car sits at a traffic light on a London street, and as he waits, Harry drums his hands against the steering wheel in a rhythmic beat.
 <<timed 5s>>
 The silence between you has stretched on a little longer than feels comfortable.
@@ -225,11 +239,11 @@ The silence between you has stretched on a little longer than feels comfortable.
 [[Harry shoots you a quick look]]
 
 
-:: You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you. [First-Draft] {"position":"1100,750","size":"100,100"}
+:: You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you. [First-Draft] {"position":"1375,750","size":"100,100"}
 [[‘What’s your name then?’ he asks.]]
 
 
-:: You're a little taken aback {"position":"1550,1125","size":"100,100"}
+:: You're a little taken aback {"position":"1825,1125","size":"100,100"}
 You’ve never heard Harry speak like this. You’d only hung out on the gym on Thursdays. The conversation there only got about as heated as ‘how many sets do you have left?’
 
 You can feel him waiting for some kind of supporting statement from you, an indication that you’re feeling the same.
@@ -239,24 +253,29 @@ You can feel him waiting for some kind of supporting statement from you, an indi
 [[•Disagree with him]]
 
 
-:: a dick? {"position":"275,725","size":"100,100"}
+:: a dick? {"position":"500,650","size":"100,100"}
+\<<set $f_mood to $f_mood+1>>
 Fred laughs, and the last of the creases on his foredhead vanish.
 He slaps you on the shoulder. @@.F;'Exactly.'@@
 <<timed 5s>>
 After a few seconds, he leans in and half-whispers, @@F;'Just take everything you hear from Judy with a pinch of salt, alright? Me, I'm a straight-talker. You might not like what I've got to say, but I'm being me. Judy... she's not like us.'@@
-[[Ask why they've fallen out.]]
+[[•	Ask why they've fallen out.][<<set $fred_conversation to 'Fight']]
+[[•	Ask how he knows Judy][<<set $fred_conversation to 'Judy']]
+[[•	Make a polite excuse to leave.]]
 <<\timed>>
 
 
-
-:: so emotional? {"position":"425,725","size":"100,100"}
+:: so emotional? {"position":"700,700","size":"100,100"}
+\<<set $f_mood to $f_mood-1>>
 Fred's scowl deepens and he glances back towards the kitchen.
 @@.F;'You sound just like her. Whatever. It's a big night, I'm allowed to have my own opinions.'@@
-[[Ask why they've fallen out.]]
-[[Leave ->•	Continue to walk away.]] 
+[[•	Ask why they've fallen out.]]
+[[•	Ask how he knows Judy]]
+[[•	Leave ->•	Continue to walk away.]]
 
 
-:: ‘What’s your name then?’ he asks. [First-Draft] {"position":"1150,875","size":"100,100"}
+
+:: ‘What’s your name then?’ he asks. [First-Draft] {"position":"1425,875","size":"100,100"}
 I'm <<textbox "$name" "">>
 
 You look at him expectantly. 
@@ -265,11 +284,17 @@ He reaches over a hand to shake yours.
 [[•	Shake his hand]]
 
 
-:: •	Admit that you have {"position":"400,250","size":"100,100"}
+:: •	Admit that you have {"position":"400,475","size":"100,100"}
+JUDY TEXT
 
 
+[[•	Ask why they've fallen out.]]
+[[•	Ask how he knows Judy]]
+[[•	Leave ->•	Continue to walk away.]]
 
-:: •	Ask him if he's okay. {"position":"350,425","size":"100,100"}
+
+:: •	Ask him if he's okay. {"position":"625,400","size":"100,100"}
+\<<set $f_mood to $f_mood+1>>
 The man lets out an exaggerated sigh, and picks from a bowl of nuts.
 @@.F;'Whatever, I'll get over it. I always do.'@@
 You see that his jaw is clenched, and his nostrils flare with each heavy breath.
@@ -278,22 +303,52 @@ His voiced is strained, and for a passing moment, you wonder what it is that you
 [[•	Tell him you haven't.]]
 \<<if $first_branch_choice is 'judy'>> 
 [[•	Admit that you have]]<</if>>
+[[•	Leave.->•	Continue to walk away.]] 
 
 
-:: •	Continue to walk away. {"position":"575,725","size":"100,100"}
+:: •	Ask how he knows Judy {"position":"575,825","size":"100,100"}
+<<if $f_mood >=1>>
+You see Fred's eyes widen, and his gestures look more animated.
+@@.F;'We met at uni, lived in a complete shithole at the time. It was fun, the night would swing from drinking some swiped Wild Grouse to tossing the empty bottle at an ATM. We had real a fire, you know?'@@@
+Fred looks towards the kitchen, and you see his smile fade.
+@@.F;'She had real fire.'@@
+<</if>>
+<<if $f_mood <=1>>
+The frustration momentarily fades, and Fred's face relaxes.
+@@.F;'We met at uni, lived in a complete shithole at the time. It was fun, the night would swing from drinking some swiped Wild Grouse to tossing the empty bottle at an ATM. We had real a fire, you know?'@@@
+Fred looks towards the kitchen, and you see his smile fade.
+@@.F;'She had real fire.'@@
+<</if>>
+[['People change. You can't fight the system forever.']]
+[['That's a shame, I hate it when people turn back on their values.]]
+<<if $fred_conversation is 'Judy'>>
+[[Ask why they're fallen out. ->•	Ask why they've fallen out.]]
+<</if>>
+
+
+:: •	Ask why they've fallen out. {"position":"300,875","size":"100,100"}
+Fred 
+
+
+<<if $fred_conversation is 'Fight'>>
+[[•	Ask how he knows Judy]]
+<<\if>>
+
+
+:: •	Continue to walk away. {"position":"850,725","size":"100,100"}
 <<set $f_mood to $f_mood-2>>
 You ignore Fred's frustration. His anger isn't your problem. 
 Instead, you [[look around for someone more hospitable to talk to.->Conversations Checkpoint][$fred_branch = true]]
 
 
-:: •	Good {"position":"1625,500","size":"100,100"}
+:: •	Good {"position":"1900,500","size":"100,100"}
 @@.H;‘Come on, tell me how you really feel. Adam’s your boss right? He can be a bit…’@@
 
 [[•He's a micromanager, sure]]
 [[•of a prick?]]
 
 
-:: •	How does he know everyone? [First-Draft] {"position":"1150,1125","size":"100,100"}
+:: •	How does he know everyone? [First-Draft] {"position":"1425,1125","size":"100,100"}
 <<linkreplace "@@.G;'University mostly. I’ve known Judy since we were kids though.'@@">>
 <<linkreplace "His eyes flicker to her with a kind of cool observation. You wonder why there seems to be so little affection in that gaze. ">>
 <<linkreplace "@@.G;'Her Dad knew my Dad, we sort of ended up growing up together.'@@">>
@@ -305,14 +360,14 @@ The look he gives you sits somewhere between curious and dismissive.
 \<</linkreplace>>
 
 
-:: •	It's a job {"position":"1750,500","size":"100,100"}
+:: •	It's a job {"position":"2025,500","size":"100,100"}
 @@.H;‘Come on, tell me how you really feel. Adam’s your boss right? He can be a bit…’@@
 
 [[•He's a micromanager, sure]]
 [[•of a prick?]]
 
 
-:: •	Leave. {"position":"525,575","size":"100,100"}
+:: •	Leave. {"position":"800,575","size":"100,100"}
 As you turn to leave, you hear an exaggerated sigh and the rustling of a crisps packet.
 @@.F;'That's what I thought. Enjoy your time as the hot new thing.'@@
 Glancing back, you see that his jaw is clenched, and his nostrils flare with each heavy breath.
@@ -324,11 +379,15 @@ His voiced is strained, and for a passing moment, you wonder what it is that you
 [[•	Continue to walk away.]]
 
 
-:: •	Move the conversation on {"position":"1175,1425","size":"100,100"}
+:: •	Make a polite excuse to leave. {"position":"825,900","size":"100,100"}
+You [[look around for someone less intense to talk to.->Conversations Checkpoint][$fred_branch = true]]
+
+
+:: •	Move the conversation on {"position":"1450,1425","size":"100,100"}
 
 
 
-:: •	Shake his hand [First-Draft] {"position":"1150,1000","size":"100,100"}
+:: •	Shake his hand [First-Draft] {"position":"1425,1000","size":"100,100"}
 He does so in one powerful movement, before letting it quickly go.
 
 Ask him about:
@@ -337,7 +396,7 @@ Ask him about:
 [[•	What’s he’s reading?][$gar_conversation = 'book']]
 
 
-:: •	Sit a on the armchair across from him? [First-Draft] {"position":"1400,625","size":"100,100"}
+:: •	Sit a on the armchair across from him? [First-Draft] {"position":"1675,625","size":"100,100"}
 Beside the lumpy sofa is a broad armchair. You throw your weight into it with false confidence, and it makes a devastatingly loud fart noise as the air rushes out of the cushions beneath you. 
 You lock eyes with the man with the book, your face heating. 
 \<<if $first_branch_choice is 'fred'>> 
@@ -350,7 +409,7 @@ Behind you, you can hear Judy and John are chatting in the kitchen with an easy 
 [[‘What’s your name then?’ he asks.]]
 
 
-:: •	Sit at a companionable distance? [First-Draft] {"position":"1275,625","size":"100,100"}
+:: •	Sit at a companionable distance? [First-Draft] {"position":"1550,625","size":"100,100"}
 You sit in the middle of the sofa, close enough that you could put a hand on his thigh if you’d wanted to. You see his eyes dart from the page to your own leg. He may be uncomfortable with your proximity. You shuffle a little further away. 
 \<<if $first_branch_choice is 'fred'>> 
 FRED FIRST TEXT HERE
@@ -368,7 +427,7 @@ You shift in discomfort as you realise the man has put down his book, you smile 
 [[‘What’s your name then?’ he asks.]]
 
 
-:: •	Sit on the sofa as far away as possible? [First-Draft] {"position":"1150,625","size":"100,100"}
+:: •	Sit on the sofa as far away as possible? [First-Draft] {"position":"1425,625","size":"100,100"}
 As you sit down, the sofa cushions move under your weight, and the motion ripples over to the reading man. He clears his throat and shifts position, but doesn’t look at you. You’re thankful you sat at the very edge of the three-person sofa.
 \<<if $first_branch_choice is 'fred'>> 
 FRED FIRST TEXT HERE
@@ -383,7 +442,7 @@ Meanwhile, Judy and John are chatting in the kitchen with an easy familiarity. <
 <<timed 9s>>[[You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you.]]<</timed>>
 
 
-:: •	Tell him you haven't. {"position":"350,575","size":"100,100"}
+:: •	Tell him you haven't. {"position":"625,575","size":"100,100"}
 Fred gives you a flustered look before fixing his eyes back on the snacks. 
 @@.F;'Oh, only a matter of time then, I guess.'@@
 A second sigh, this time it sounds more genuine, and you see his tense shoulders deflate as he slowly exhales.
@@ -392,7 +451,7 @@ A second sigh, this time it sounds more genuine, and you see his tense shoulders
 [[a dick?]]
 
 
-:: •	What’s he’s reading? [First-Draft] {"position":"1275,1125","size":"100,100"}
+:: •	What’s he’s reading? [First-Draft] {"position":"1550,1125","size":"100,100"}
 He looks at the front of the book as if seeing it for the first time. @@.G;‘Oh, just Freud’s Ego and the Id. I’m trying to get away from ego this month’@@
 
 ‘How that going for you?’
@@ -406,7 +465,7 @@ It seems you have failed to keep his interest.
 [[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 
 
-:: •	Who is he closest to here? [First-Draft] {"position":"1025,1125","size":"100,100"}
+:: •	Who is he closest to here? [First-Draft] {"position":"1300,1125","size":"100,100"}
 Gareth looks about the room with cool observation.  
 
 @@.G;‘I’ve known Judy since we were kids.’@@
@@ -416,13 +475,13 @@ It looks like that might be the only information he will proffer, but after a an
 [[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 
 
-:: •Agree with him vehemently {"position":"1550,1250","size":"100,100"}
+:: •Agree with him vehemently {"position":"1825,1250","size":"100,100"}
 ‘Yeah some of our clients are real fat cats. It’s quite depressing seeing all that money flying about’
 
 @@.H;‘Yeah and knowing they’re putting it toward… nothing! Funding their wasteful lives! It’s not right.’@@
 
 
-:: •Disagree with him {"position":"1425,1250","size":"100,100"}
+:: •Disagree with him {"position":"1700,1250","size":"100,100"}
 ‘I dunno, some of those people do good work. Like, they’re important people’
 
 @@.H;‘Didn’t take you for a tory’@@
@@ -434,13 +493,13 @@ You feel the sudden desire to backpeddle, ‘Oh no, I’m not anything. Not a to
 The air in the car turns frosty.
 
 
-:: •Give a measured reply {"position":"1675,1250","size":"100,100"}
+:: •Give a measured reply {"position":"1950,1250","size":"100,100"}
 ‘Eat the rich, am I right?’
 
 @@.H;‘Yeah dude, you get it! Truly we’re living in the darkest timeline. Capitalism can stuff it’@@
 
 
-:: •He's a micromanager, sure {"position":"1562.5,750","size":"100,100"}
+:: •He's a micromanager, sure {"position":"1850,750","size":"100,100"}
 Harry gives you a quirk of the eyebrow. He can tell you’re hedging but you kind of like Adam. He got you a flat white the other morning.
 
 @@.H;‘You don’t have to worry about speaking honestly with me. I’m on the second floor so I’m away from all you high flyers’@@
@@ -450,7 +509,7 @@ You feel like you have to give him something, ‘He really loves his car’
 [[That bloody BMW!]]
 
 
-:: •of a prick? {"position":"1687.5,750","size":"100,100"}
+:: •of a prick? {"position":"1975,750","size":"100,100"}
 Harry hoots with laughter, but the moment you say it you feel a pang of guilt. Adam’s not so bad. 
 
 [[That bloody BMW!]]
@@ -476,7 +535,7 @@ font-style: italic;
 color: green;
 } 
 /* Fred */ span.F {
-color: darkred;
+color: red;
 }
 /* Harry */ span.H {
 color: blue
