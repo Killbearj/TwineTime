@@ -17,16 +17,19 @@ People_Pleaser_Main
 
 
 :: 'People change. You can't fight the system forever.' {"position":"675,1000","size":"100,100"}
-Fred scoffs. 
-@@.F;'You have no idea
+Fred scoffs.
+@@.F;'That's the talk of a loser, and losers aren't invited here.'
 [[•	Make a polite excuse to leave.]]
 <<if $fred_conversation is 'Judy'>>
-[[Ask why they're fallen out. ->•	Ask why they've fallen out.]]
+[[Shift the conversation and ask why they're fallen out. ->•	Ask why they've fallen out.]]
 <</if>>
 
 
 :: 'That's a shame, I hate it when people turn back on their values. {"position":"525,1000","size":"100,100"}
 Fred nods in agreement. 
+@@.F;'Yeah, sometimes we compromise, but we don't change. Judy from uni wouldn't even recognise the person in that kitchen.'@@
+He turns back to the table and smiles.
+@@.F;'Although she does still make a mean guacamole.'@@
 [[•	Make a polite excuse to leave.]]
 <<if $fred_conversation is 'Judy'>>
 [[Ask why they're fallen out. ->•	Ask why they've fallen out.]]
