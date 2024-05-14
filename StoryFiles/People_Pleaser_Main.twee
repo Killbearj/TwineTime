@@ -9,31 +9,17 @@ People_Pleaser_Main
   "format-version": "2.36.1",
   "start": "That bloody BMW!",
   "tag-colors": {
-    "Main": "yellow",
-    "First-Draft": "orange"
+    "Main": "yellow"
   },
   "zoom": 1
 }
 
 
-:: 'People change. You can't fight the system forever.' {"position":"675,1000","size":"100,100"}
-Fred scoffs.
-@@.F;'That's the talk of a loser, and losers aren't invited here.'
-[[•	Make a polite excuse to leave.]]
-<<if $fred_conversation is 'Judy'>>
-[[Shift the conversation and ask why they're fallen out. ->•	Ask why they've fallen out.]]
-<</if>>
-
-
-:: 'That's a shame, I hate it when people turn back on their values. {"position":"525,1000","size":"100,100"}
-Fred nods in agreement. 
-@@.F;'Yeah, sometimes we compromise, but we don't change. Judy from uni wouldn't even recognise the person in that kitchen.'@@
-He turns back to the table and smiles.
-@@.F;'Although she does still make a mean guacamole.'@@
-[[•	Make a polite excuse to leave.]]
-<<if $fred_conversation is 'Judy'>>
-[[Ask why they're fallen out. ->•	Ask why they've fallen out.]]
-<</if>>
+:: Argument_End {"position":"550,1250","size":"100,100"}
+@@.F;'Glad to hear it. You really should try the guacamole, it's excellent,'@@
+Taking his own advice, Fred crunches down on a guacamole-covered chip.
+<<if $fred_conversation is 'Fight'>>[[Ask how he knows Judy.->•	Ask how he knows Judy]].<</if>>
+[[Fred falls silent, picking at the snacks. You try some of the guacamole before leaving.->•	Make a polite excuse to leave.]]
 
 
 :: Choose Path [First-Draft] {"position":"975,350","size":"100,100"}
@@ -144,6 +130,14 @@ JUDY SECOND OR THIRD TEXT HERE
 <</if>>
 
 
+:: Movie {"position":"425,1125","size":"100,100"}
+<<if $f_mood >=2>>@@.F;'Interesting choice. I think me and you might get on alright after all. Tell you what, I'll have your back and you have mine, yeah?@@<</if>>
+<<if $f_mood <2>>@@.F;'Not what I would have picked, but whatever. If it came to it, you'd still have my back, right?@@<</if>>
+[[•	Of course.->Argument_End][$f_mood to $f_mood+1]]
+[[•	Yeah, maybe.->Argument_End]]
+
+
+
 :: Pronoun Test {"position":"975,75","size":"100,100"}
 Harry grins and gestures towards you.
 'Oh, [[he|Pronoun_Selected][$pnoun to 'he']]/[[she|Pronoun_Selected][$pnoun to 'she']]/[[they|Pronoun_Selected][$pnoun to 'they']] didn't know.'
@@ -217,7 +211,7 @@ $fred_conversation     /* Fred's Conversation Branching*/
 <<set $gareth_branch to false>>
 
 
-:: That bloody BMW! {"position":"1850,875","size":"100,100"}
+:: That bloody BMW! {"position":"1925,875","size":"100,100"}
 @@.H;‘He’s always going on about his bloody BMW. You know what they say about BMW drivers’@@
 
 You don’t. You take the bus. You nod all the same. 
@@ -225,7 +219,7 @@ You don’t. You take the bus. You nod all the same.
 [[To tell you the truth]]
 
 
-:: To tell you the truth {"position":"1850,1000","size":"100,100"}
+:: To tell you the truth {"position":"1925,1000","size":"100,100"}
 Harry takes a turn down a quiet suburban street. The houses on each side are the kinds of terraces that workers used to live in, now occupied by young and wealthy Londoners. 
 
 Harry continues with an air of conspiracy @@.H;‘I’ve been feel pretty down on PTC for a while. All those billionaire clients with their second and third homes. All that money we watch moving around. It makes me kind of sick’@@
@@ -246,7 +240,7 @@ The silence between you has stretched on a little longer than feels comfortable.
 [[‘What’s your name then?’ he asks.]]
 
 
-:: You're a little taken aback {"position":"1825,1125","size":"100,100"}
+:: You're a little taken aback {"position":"1900,1125","size":"100,100"}
 You’ve never heard Harry speak like this. You’d only hung out on the gym on Thursdays. The conversation there only got about as heated as ‘how many sets do you have left?’
 
 You can feel him waiting for some kind of supporting statement from you, an indication that you’re feeling the same.
@@ -254,28 +248,6 @@ You can feel him waiting for some kind of supporting statement from you, an indi
 [[•Agree with him vehemently]]
 [[•Give a measured reply]]
 [[•Disagree with him]]
-
-
-:: a dick? {"position":"500,650","size":"100,100"}
-\<<set $f_mood to $f_mood+1>>
-Fred laughs, and the last of the creases on his foredhead vanish.
-He slaps you on the shoulder. @@.F;'Exactly.'@@
-<<timed 5s>>
-After a few seconds, he leans in and half-whispers, @@F;'Just take everything you hear from Judy with a pinch of salt, alright? Me, I'm a straight-talker. You might not like what I've got to say, but I'm being me. Judy... she's not like us.'@@
-[[•	Ask why they've fallen out.][<<set $fred_conversation to 'Fight']]
-[[•	Ask how he knows Judy][<<set $fred_conversation to 'Judy']]
-[[•	Make a polite excuse to leave.]]
-<<\timed>>
-
-
-:: so emotional? {"position":"700,700","size":"100,100"}
-\<<set $f_mood to $f_mood-1>>
-Fred's scowl deepens and he glances back towards the kitchen.
-@@.F;'You sound just like her. Whatever. It's a big night, I'm allowed to have my own opinions.'@@
-[[•	Ask why they've fallen out.]]
-[[•	Ask how he knows Judy]]
-[[•	Leave ->•	Continue to walk away.]]
-
 
 
 :: ‘What’s your name then?’ he asks. [First-Draft] {"position":"1425,875","size":"100,100"}
@@ -287,16 +259,34 @@ He reaches over a hand to shake yours.
 [[•	Shake his hand]]
 
 
-:: •	Admit that you have {"position":"400,475","size":"100,100"}
+:: •	'People change. You can't fight the system forever.' {"position":"825,1450","size":"100,100"}
+Fred scoffs.
+@@.F;'That's the talk of a loser, and losers aren't invited here.'
+[[•	Make a polite excuse to leave.]]
+<<if $fred_conversation is 'Judy'>>[[Is that what caused the argument?. ->•	Ask what they argued about.]]
+<</if>>
+
+
+:: •	'That's a shame, I hate it when people turn back on their values. {"position":"650,1100","size":"100,100"}
+Fred nods in agreement. 
+@@.F;'Yeah, sometimes we compromise, but we don't change. Judy from uni wouldn't even recognise the person in that kitchen.'@@
+He turns back to the table and smiles.
+@@.F;'Although she does still make a mean guacamole.'@@
+[[•	Make a polite excuse to leave.]]
+<<if $fred_conversation is 'Judy'>>[[Is that what caused the argument? ->•	Ask what they argued about.]]
+<</if>>
+
+
+:: •	Admit that you have {"position":"350,500","size":"100,100"}
 JUDY TEXT
 
 
-[[•	Ask why they've fallen out.]]
-[[•	Ask how he knows Judy]]
+[[•	Ask what they argued about.]]
+[[•	Ask how he knows Judy]].
 [[•	Leave ->•	Continue to walk away.]]
 
 
-:: •	Ask him if he's okay. {"position":"625,400","size":"100,100"}
+:: •	Ask him if he's okay. {"position":"600,450","size":"100,100"}
 \<<set $f_mood to $f_mood+1>>
 The man lets out an exaggerated sigh, and picks from a bowl of nuts.
 @@.F;'Whatever, I'll get over it. I always do.'@@
@@ -309,36 +299,41 @@ His voiced is strained, and for a passing moment, you wonder what it is that you
 [[•	Leave.->•	Continue to walk away.]] 
 
 
-:: •	Ask how he knows Judy {"position":"575,825","size":"100,100"}
-<<if $f_mood >=1>>
-You see Fred's eyes widen, and his gestures look more animated.
-@@.F;'We met at uni, lived in a complete shithole at the time. It was fun, the night would swing from drinking some swiped Wild Grouse to tossing the empty bottle at an ATM. We had real a fire, you know?'@@@
+:: •	Ask how he knows Judy {"position":"575,900","size":"100,100"}
+<<if $f_mood >=1>>You see Fred's eyes widen, and his gestures look more animated.
+@@.F;'We met at uni, lived in a complete shithole at the time. Nights would swing from drinking some swiped Wild Grouse to tossing the empty bottle at a cash machine. We had real a fire, you know?'@@
 Fred looks towards the kitchen, and you see his smile fade.
-@@.F;'She had real fire.'@@
-<</if>>
-<<if $f_mood <=1>>
-The frustration momentarily fades, and Fred's face relaxes.
-@@.F;'We met at uni, lived in a complete shithole at the time. It was fun, the night would swing from drinking some swiped Wild Grouse to tossing the empty bottle at an ATM. We had real a fire, you know?'@@@
+@@.F;'She had real fire.'@@<</if>>
+<<if $f_mood <1>>The frustration momentarily fades, and Fred's face relaxes.
+@@.F;'We met at uni, lived in a complete shithole at the time. Nights would swing from drinking some swiped Wild Grouse to tossing the empty bottle at a cash machine. We had real a fire, you know?'@@@
 Fred looks towards the kitchen, and you see his smile fade.
-@@.F;'She had real fire.'@@
-<</if>>
-[['People change. You can't fight the system forever.']]
-[['That's a shame, I hate it when people turn back on their values.]]
-<<if $fred_conversation is 'Judy'>>
-[[Ask why they're fallen out. ->•	Ask why they've fallen out.]]
+@@.F;'She had real fire.'@@<</if>>
+[[•	'People change. You can't fight the system forever.']]
+[[•	'That's a shame, I hate it when people turn back on their values.][set $f_mood to $f_mood+1]]
+<<if $fred_conversation is 'Judy'>>[[Is that what caused the argument? ->•	Ask what they argued about.]]
 <</if>>
 
 
-:: •	Ask why they've fallen out. {"position":"300,875","size":"100,100"}
-Fred 
+:: •	Ask what they argued about. {"position":"250,825","size":"100,100"}
+Fred exhales sharply. You can't tell if that was a laugh or a moment of irritation, and a flash of panic runs through you. 
+@@.F;'It wasn't an argument. It never is. Judy always gets her way, and if it ever comes to a vote, then I've got the chronic fence-sitter,'@@ he gestures towards the man on the sofa, @@.F;'and the lapdog. It's always two to one. Where we eat, what music we listen to, it doesn't matter, it's what Judy wants.'@@
+He sees the look of concern on your face and smiles.
+@@.F;'Don't worry. The annoying kicker is that she's usually right. Maybe just... not this time.]] 
+<<linkappend "•	Why do you still hang out with them?">>
+@@.F;'They're family. You fight with family, but you still love them.'@@ <</linkappend>>
+[[•	Why not this time?]]
+<<if $fred_conversation is 'Fight'>>[[Change the topic and ask how he knows Judy.->•	Ask how he knows Judy]].<</if>>
+[[•	Make a polite excuse to leave.]]
 
 
-<<if $fred_conversation is 'Fight'>>
-[[•	Ask how he knows Judy]]
-<<\if>>
+:: •	Ask which he prefers. {"position":"225,1125","size":"100,100"}
+@@.F;'Oh no, I'm not influencing your choice. I want to know if you're my kind of person. So, go on. The Thing or Parasite?'@@
+His eyes are locked on yours, and you feel a bead of sweat run down your back. You tell youself that this is silly, you're just chosing a movie. 
+[[•	I've always wanted to see The Thing.->Movie]]
+[[•	I really liked Parasite. Maybe that?->Movie]]
 
 
-:: •	Continue to walk away. {"position":"850,725","size":"100,100"}
+:: •	Continue to walk away. {"position":"875,800","size":"100,100"}
 <<set $f_mood to $f_mood-2>>
 You ignore Fred's frustration. His anger isn't your problem. 
 Instead, you [[look around for someone more hospitable to talk to.->Conversations Checkpoint][$fred_branch = true]]
@@ -370,7 +365,7 @@ The look he gives you sits somewhere between curious and dismissive.
 [[•of a prick?]]
 
 
-:: •	Leave. {"position":"800,575","size":"100,100"}
+:: •	Leave. {"position":"825,650","size":"100,100"}
 As you turn to leave, you hear an exaggerated sigh and the rustling of a crisps packet.
 @@.F;'That's what I thought. Enjoy your time as the hot new thing.'@@
 Glancing back, you see that his jaw is clenched, and his nostrils flare with each heavy breath.
@@ -382,8 +377,8 @@ His voiced is strained, and for a passing moment, you wonder what it is that you
 [[•	Continue to walk away.]]
 
 
-:: •	Make a polite excuse to leave. {"position":"825,900","size":"100,100"}
-You [[look around for someone less intense to talk to.->Conversations Checkpoint][$fred_branch = true]]
+:: •	Make a polite excuse to leave. {"position":"800,950","size":"100,100"}
+After silently eating a healthy serving of snacks, you [[look around for someone less intense to talk to.->Conversations Checkpoint][$fred_branch = true]].
 
 
 :: •	Move the conversation on {"position":"1450,1425","size":"100,100"}
@@ -445,13 +440,13 @@ Meanwhile, Judy and John are chatting in the kitchen with an easy familiarity. <
 <<timed 9s>>[[You shift in discomfort as you realise the man has put down his book, you smile awkwardly as he turns to you.]]<</timed>>
 
 
-:: •	Tell him you haven't. {"position":"625,575","size":"100,100"}
+:: •	Tell him you haven't. {"position":"625,650","size":"100,100"}
 Fred gives you a flustered look before fixing his eyes back on the snacks. 
 @@.F;'Oh, only a matter of time then, I guess.'@@
 A second sigh, this time it sounds more genuine, and you see his tense shoulders deflate as he slowly exhales.
 @@.F;'We got off on a bad foot. I'm not usually...'@@ He pauses, trying to find the right word.
-[[so emotional?]]
-[[a dick?]]
+[[•	so emotional?]]
+[[•	a dick?]]
 
 
 :: •	What’s he’s reading? [First-Draft] {"position":"1550,1125","size":"100,100"}
@@ -478,13 +473,44 @@ It looks like that might be the only information he will proffer, but after a an
 [[You nod vigorously to show that you’re listening, but he offers no further information. He flips back open his book.|Listened to Gareth]]
 
 
-:: •Agree with him vehemently {"position":"1825,1250","size":"100,100"}
+:: •	Why not this time? {"position":"325,975","size":"100,100"}
+@@.F;'She's get her head all twisted.'@@
+Fred's eyes narrow and he puts a hand on your shoulder.
+@@.F;'But hey, maybe with you here, the voting odds tip in my favour. What way would you vote on what movie we watch next? The Thing or Parasite? There is a right answer.'@@
+[[•	The Thing, it's a classic.->Movie]]
+[[•	Parasite, foreign cinema is criminally underrated.->Movie]]
+[[•	Ask which he prefers.]]
+
+
+:: •	a dick? {"position":"400,675","size":"100,100"}
+\<<set $f_mood to $f_mood+1>>
+Fred laughs, and the last of the creases on his forehead vanish.
+He slaps you on the shoulder. @@.F;'Exactly.'@@
+<<timed 5s>>
+After a few seconds, he leans in and half-whispers, @@F;'Just take everything you hear from Judy with a pinch of salt, alright? Me, I'm a straight-talker. You might not like what I've got to say, but I'm being me. Judy... she's not like us.'@@
+[[•	Ask what they argued about.][<<set $fred_conversation to 'Fight']]
+[[•	Ask how he knows Judy][<<set $fred_conversation to 'Judy']].
+[[•	Make a polite excuse to leave.]]
+<<\timed>>
+
+
+:: •	so emotional? {"position":"725,775","size":"100,100"}
+\<<set $f_mood to $f_mood-1>>
+Fred's scowl deepens and he glances back towards the kitchen.
+@@.F;'You sound just like her. Whatever. It's a big night, I'm allowed to have my own opinions.'@@
+[[•	Ask what they argued about.]]
+[[•	Ask how he knows Judy]].
+[[•	Leave ->•	Continue to walk away.]]
+
+
+
+:: •Agree with him vehemently {"position":"1900,1250","size":"100,100"}
 ‘Yeah some of our clients are real fat cats. It’s quite depressing seeing all that money flying about’
 
 @@.H;‘Yeah and knowing they’re putting it toward… nothing! Funding their wasteful lives! It’s not right.’@@
 
 
-:: •Disagree with him {"position":"1700,1250","size":"100,100"}
+:: •Disagree with him {"position":"1775,1250","size":"100,100"}
 ‘I dunno, some of those people do good work. Like, they’re important people’
 
 @@.H;‘Didn’t take you for a tory’@@
@@ -496,13 +522,13 @@ You feel the sudden desire to backpeddle, ‘Oh no, I’m not anything. Not a to
 The air in the car turns frosty.
 
 
-:: •Give a measured reply {"position":"1950,1250","size":"100,100"}
+:: •Give a measured reply {"position":"2025,1250","size":"100,100"}
 ‘Eat the rich, am I right?’
 
 @@.H;‘Yeah dude, you get it! Truly we’re living in the darkest timeline. Capitalism can stuff it’@@
 
 
-:: •He's a micromanager, sure {"position":"1850,750","size":"100,100"}
+:: •He's a micromanager, sure {"position":"1925,750","size":"100,100"}
 Harry gives you a quirk of the eyebrow. He can tell you’re hedging but you kind of like Adam. He got you a flat white the other morning.
 
 @@.H;‘You don’t have to worry about speaking honestly with me. I’m on the second floor so I’m away from all you high flyers’@@
@@ -512,7 +538,7 @@ You feel like you have to give him something, ‘He really loves his car’
 [[That bloody BMW!]]
 
 
-:: •of a prick? {"position":"1975,750","size":"100,100"}
+:: •of a prick? {"position":"2050,750","size":"100,100"}
 Harry hoots with laughter, but the moment you say it you feel a pang of guilt. Adam’s not so bad. 
 
 [[That bloody BMW!]]
