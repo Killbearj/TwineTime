@@ -259,12 +259,14 @@ He reaches over a hand to shake yours.
 [[•	Shake his hand]]
 
 
-:: •	'People change. You can't fight the system forever.' {"position":"825,1450","size":"100,100"}
+:: •	'People change. You can't fight the system forever.' {"position":"825,1150","size":"100,100"}
 Fred scoffs.
-@@.F;'That's the talk of a loser, and losers aren't invited here.'
-[[•	Make a polite excuse to leave.]]
-<<if $fred_conversation is 'Judy'>>[[Is that what caused the argument?. ->•	Ask what they argued about.]]
+@@.F;'That's loser talk. Judy isn't a loser, she's just mixed up.'@@
+He crunches on a chip and stares you down.
+@@.F;'Maybe you could chat to her about it. Or maybe you'll just mix her up worse.'@@
+<<if $fred_conversation is 'Judy'>>[[•	What was it they argued about?. ->•	Ask what they argued about.]]
 <</if>>
+[[•	Make a polite excuse to leave.]]
 
 
 :: •	'That's a shame, I hate it when people turn back on their values. {"position":"650,1100","size":"100,100"}
