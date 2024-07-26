@@ -16,8 +16,8 @@ People_Pleaser_Main
 
 
 :: Argument_End {"position":"550,1250","size":"100,100"}
-@@.F;'Glad to hear it. You really should try the guacamole, it's excellent,'@@
-Taking his own advice, Fred crunches down on a guacamole-covered chip.
+@@.F;'Glad to hear it. You really should try this, it's good stuff.'@@
+Fred raises, and then crunches down on a guacamole-covered chip.
 <<if $fred_conversation is 'Fight'>>[[Ask how he knows Judy.->•	Ask how he knows Judy]].<</if>>
 [[Fred falls silent, picking at the snacks. You try some of the guacamole before leaving.->•	Make a polite excuse to leave.]]
 
@@ -60,7 +60,7 @@ You see Gareth is still BLAHING on the sofa.<</if>>
 :: Fred {"position":"800,450","size":"100,100"}
 <<linkappend "You walk towards the ornate table. Bowls filled with various colourful snacks cover the surface. A nervous anticipation has filled your stomach, leaving little room for food, and you spend a few moment trying to decide what you can pick at politely.">>
 <<if $first_branch_choice is 'fred'>> 
-When the stranger doesn't acknowledge your existence, you wonder if perhaps you should have chosen a friendlier figure. Your eyes dart towards the man on the sofa, he seems harmless enough. 
+When the stranger doesn't acknowledge your existence, you wonder if perhaps you should have chosen a friendlier figure to approach first. Your eyes dart towards the man on the sofa, he seems harmless enough.
 As though reading your mind, the stranger huffs and turns to you.
 \<<elseif $first_branch_choice is 'judy'>>  
 JUDY FIRST TEXT HERE
@@ -131,11 +131,10 @@ JUDY SECOND OR THIRD TEXT HERE
 
 
 :: Movie {"position":"425,1125","size":"100,100"}
-<<if $f_mood >=2>>@@.F;'Interesting choice. I think me and you might get on alright after all. Tell you what, I'll have your back and you have mine, yeah?@@<</if>>
+<<if $f_mood >=2>>@@.F;'That's a fucking great pick. I think me and you might get on alright after all. Tell you what, I'll have your back and you have mine, yeah?@@<</if>>
 <<if $f_mood <2>>@@.F;'Not what I would have picked, but whatever. If it came to it, you'd still have my back, right?@@<</if>>
 [[•	Of course.->Argument_End][$f_mood to $f_mood+1]]
 [[•	Yeah, maybe.->Argument_End]]
-
 
 
 :: Pronoun Test {"position":"975,75","size":"100,100"}
@@ -290,15 +289,15 @@ JUDY TEXT
 
 :: •	Ask him if he's okay. {"position":"600,450","size":"100,100"}
 \<<set $f_mood to $f_mood+1>>
-The man lets out an exaggerated sigh, and picks from a bowl of nuts.
+Your stomach tigntens as the man lets out an exaggerated sigh, and picks from a bowl of nuts.
 @@.F;'Whatever, I'll get over it. I always do.'@@
-You see that his jaw is clenched, and his nostrils flare with each heavy breath.
+His frustration is palpable. The man's jaw is clenched, and his nostrils flare with each heavy breath.
 @@.F;'I'm Fred. Not that you asked. I guess you've probably heard about me already.'
-His voiced is strained, and for a passing moment, you wonder what it is that you've done to make this man so angry.
+His voiced is strained, and for a passing moment, you wonder what you did to make this man so angry. You try to stamp the thought down, his anger isn't your fault, but despite your best efforts, the idea lingers.
 [[•	Tell him you haven't.]]
 \<<if $first_branch_choice is 'judy'>> 
 [[•	Admit that you have]]<</if>>
-[[•	Leave.->•	Continue to walk away.]] 
+[[•	Leave.->•	Continue to walk away.]]
 
 
 :: •	Ask how he knows Judy {"position":"575,900","size":"100,100"}
@@ -319,7 +318,7 @@ Fred looks towards the kitchen, and you see his smile fade.
 :: •	Ask what they argued about. {"position":"250,825","size":"100,100"}
 Fred exhales sharply. You can't tell if that was a laugh or a moment of irritation, and a flash of panic runs through you. 
 @@.F;'It wasn't an argument. It never is. Judy always gets her way, and if it ever comes to a vote, then I've got the chronic fence-sitter,'@@ he gestures towards the man on the sofa, @@.F;'and the lapdog. It's always two to one. Where we eat, what music we listen to, it doesn't matter, it's what Judy wants.'@@
-He sees the look of concern on your face and smiles.
+He smiles, you assume he noticed the frozen look of panic on your face.
 @@.F;'Don't worry. The annoying kicker is that she's usually right. Maybe just... not this time.]] 
 <<linkappend "•	Why do you still hang out with them?">>
 @@.F;'They're family. You fight with family, but you still love them.'@@ <</linkappend>>
@@ -329,15 +328,15 @@ He sees the look of concern on your face and smiles.
 
 
 :: •	Ask which he prefers. {"position":"225,1125","size":"100,100"}
-@@.F;'Oh no, I'm not influencing your choice. I want to know if you're my kind of person. So, go on. The Thing or Parasite?'@@
-His eyes are locked on yours, and you feel a bead of sweat run down your back. You tell youself that this is silly, you're just chosing a movie. 
+@@.F;'Oh no, I'm not influencing you. I want to know if you're my kind of person. So, go on. The Thing or Parasite?'@@
+His eyes are locked on yours, and you feel a bead of sweat run down your back. You tell youself that this is silly, you're just chosing a movie. Your opinion can't be wrong.
 [[•	I've always wanted to see The Thing.->Movie]]
 [[•	I really liked Parasite. Maybe that?->Movie]]
 
 
 :: •	Continue to walk away. {"position":"875,800","size":"100,100"}
 <<set $f_mood to $f_mood-2>>
-You ignore Fred's frustration. His anger isn't your problem. 
+You ignore your quickened heartbeat, and the sweat forming in your palms. Fred's frustration wasn't caused by you, and it shouldn't be your problem. You fail to convince yourself, but it's too late to turn back now.
 Instead, you [[look around for someone more hospitable to talk to.->Conversations Checkpoint][$fred_branch = true]]
 
 
@@ -368,11 +367,11 @@ The look he gives you sits somewhere between curious and dismissive.
 
 
 :: •	Leave. {"position":"825,650","size":"100,100"}
-As you turn to leave, you hear an exaggerated sigh and the rustling of a crisps packet.
+As you turn to leave, you hear an exaggerated sigh and the rustling of a packet.
 @@.F;'That's what I thought. Enjoy your time as the hot new thing.'@@
-Glancing back, you see that his jaw is clenched, and his nostrils flare with each heavy breath.
+You glance back and can't help but note his visible furstration. The man's jaw is clenched, and his nostrils flare with each heavy breath.
 @@.F;'I'm Fred. Not that you asked. I guess you've probably heard about me already.'
-His voiced is strained, and for a passing moment, you wonder what it is that you've done to make this man so frustrated.
+His voiced is strained, and for a passing moment, you wonder what you did to make this man so angry. You try to stamp the thought down, his anger isn't your fault, but despite your best efforts, the idea lingers.
 [[•	Tell him you haven't.]]
 \<<if $first_branch_choice is 'judy'>> 
 [[•	Admit that you have]]<</if>>
@@ -443,9 +442,9 @@ Meanwhile, Judy and John are chatting in the kitchen with an easy familiarity. <
 
 
 :: •	Tell him you haven't. {"position":"625,650","size":"100,100"}
-Fred gives you a flustered look before fixing his eyes back on the snacks. 
+Fred huffs and flashes his teeth, mimicking a smile. 
 @@.F;'Oh, only a matter of time then, I guess.'@@
-A second sigh, this time it sounds more genuine, and you see his tense shoulders deflate as he slowly exhales.
+A second sigh, this time it sounds deeper, and you see his shoulders deflate as he slowly exhales. You only now realise that you had clenched your fists, and allow yourself to relax them a little, the tension has subsided a little.
 @@.F;'We got off on a bad foot. I'm not usually...'@@ He pauses, trying to find the right word.
 [[•	so emotional?]]
 [[•	a dick?]]
@@ -477,8 +476,9 @@ It looks like that might be the only information he will proffer, but after a an
 
 :: •	Why not this time? {"position":"325,975","size":"100,100"}
 @@.F;'She's get her head all twisted.'@@
-Fred's eyes narrow and he puts a hand on your shoulder.
+Fred's eyes narrow and he puts a hand on your shoulder. 
 @@.F;'But hey, maybe with you here, the voting odds tip in my favour. What way would you vote on what movie we watch next? The Thing or Parasite? There is a right answer.'@@
+His hand lingers for a few moments. You're not entirely comfortable with how much he's touched you, but you don't want to risk ruining the mood by addressing it. 
 [[•	The Thing, it's a classic.->Movie]]
 [[•	Parasite, foreign cinema is criminally underrated.->Movie]]
 [[•	Ask which he prefers.]]
@@ -486,10 +486,13 @@ Fred's eyes narrow and he puts a hand on your shoulder.
 
 :: •	a dick? {"position":"400,675","size":"100,100"}
 \<<set $f_mood to $f_mood+1>>
-Fred laughs, and the last of the creases on his forehead vanish.
-He slaps you on the shoulder. @@.F;'Exactly.'@@
+You deliver the line with a half-chuckle, hoping to dismiss the last vestiges of the unerlying tension you feel.
+Fred meets your eye, and just as you begin to regret your choice of words, he lets out a deep laugh, and the last of the creases on his forehead vanish.
+You allow yourself to smile in response, and Fred gives you a hefty slap on the shoulder.
+@@.F;'Exactly.'@@
 <<timed 5s>>
-After a few seconds, he leans in and half-whispers, @@F;'Just take everything you hear from Judy with a pinch of salt, alright? Me, I'm a straight-talker. You might not like what I've got to say, but I'm being me. Judy... she's not like us.'@@
+After a few seconds of smiling to himself, he leans in and you resist the urge to pull away at the telltale stench of smoke.
+@@F;'Just take everything you hear from Judy with a pinch of salt, alright? Me, I'm a straight-talker. You might not like what I've got to say, but I'm being me. Judy... she's not like us.'@@
 [[•	Ask what they argued about.][<<set $fred_conversation to 'Fight']]
 [[•	Ask how he knows Judy][<<set $fred_conversation to 'Judy']].
 [[•	Make a polite excuse to leave.]]
@@ -498,12 +501,12 @@ After a few seconds, he leans in and half-whispers, @@F;'Just take everything yo
 
 :: •	so emotional? {"position":"725,775","size":"100,100"}
 \<<set $f_mood to $f_mood-1>>
-Fred's scowl deepens and he glances back towards the kitchen.
+Fred's scowl deepens and he glances back towards the kitchen. A knot tightens in your stomach and you feel your throat start to clench. A silence starts to set in, and you scramble to think of a way to diffuse the new tension.
 @@.F;'You sound just like her. Whatever. It's a big night, I'm allowed to have my own opinions.'@@
+You nod enthusiastically, trying to show that you care, but Fred isn't even looking in your direction.
 [[•	Ask what they argued about.]]
 [[•	Ask how he knows Judy]].
 [[•	Leave ->•	Continue to walk away.]]
-
 
 
 :: •Agree with him vehemently {"position":"1900,1250","size":"100,100"}
